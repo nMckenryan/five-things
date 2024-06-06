@@ -1,26 +1,26 @@
-# Five Things, a bulletpoint review site.
-## A Fine way to review the things you like, and don't, without writing a big fancy essay. Movies, Games, Books, Combo Meals at your local fast food restaurant, Ex-girlfriends, webcam monitors, beans, accountants in ulladulla. the world is your burrito.
+## Five Things, a bulletpoint review site.
 
-### This was built with the T3 Stack project bootstrapped with create-t3-app.
+>A Fine way to review the things you like (or don't) without writing a big fancy essay. Movies, Games, Books, Combo Meals at your local fast food restaurant, Ex-girlfriends, webcam monitors, beans, accountants in ulladulla. the world is your burrito.
 
-Next.js
-NextAuth.js
-Prisma
-Drizzle
-Tailwind CSS
-tRPC
+This was built with the T3 Stack project bootstrapped with create-t3-app with: 
 
-##TODO:
+* React (Next.js)
+* Drizzle
+* Vercel
+* Postgres
 
- [ x ] Basic Setup and Deployment
- [] DEPLOY to Vercel
- [] Draft UI
- [] Plug in mock Data to the ui
- [] Set up Sqlite DB
- [] Attach DB to UI
- [] set up unit tests for operations
- [] Add authentication
-OPTIONAL AFTER:
+### TODO:
 
-[] Analytics
-[] Image Upload
+- [x] Basic Setup and Deployment
+- [x] DEPLOY to Vercel
+- [] Draft UI with MUI
+- [] Plug in mock Data to the ui
+- [] Set up VercelPostgre  DB
+- [] Attach DB to UI
+- [] set up unit tests for operations
+- [] Add authentication
+
+OPTIONAL AFTER MVP:
+- [] Analytics
+- [] Image Upload
+- [] Make the cards float everywhere in a way that isn't annoying
