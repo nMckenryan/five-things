@@ -1,26 +1,30 @@
-import { Card, CardContent, Typography, CardActions, Button } from "@mui/material";
+import { Card, CardContent, Typography, CardActions } from "@mui/material";
+import ThumbUpIcon from '@mui/icons-material/ThumbUp';
+import ThumbDownIcon from '@mui/icons-material/ThumbDown';
+import '../../styles/bullet-card.css';
 
-export default function BulletCard() {
+interface Props {
+  subjectName: string;
+  fiveGoodThings: string[];
+  agreeCount: number;
+  disagreeCount: number;
+}
+
+export default function BulletCard(props: Props) {
     return (
-        <Card sx={{ minWidth: 275 }}>
-          <CardContent>
-            <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
-              Word of the Day
-            </Typography>
-            <Typography variant="h5" component="div">
-              benevolent
-            </Typography>
-            <Typography sx={{ mb: 1.5 }} color="text.secondary">
-              adjective
-            </Typography>
-            <Typography variant="body2">
-              well meaning and kindly.
-              <br />
-              {'"a benevolent smile"'}
-            </Typography>
+        <Card className="fiveCard" sx={{ minWidth: 275 }}>
+          <CardContent>            
+            <Typography variant="h5" component="div" className="subjectName">
+              {props.subjectName}
+            </Typography>            
+              <ul className="goodBullets">
+                {props.fiveGoodThings.map(thing => <li key={thing.indexOf(thing)}>{thing}</li>)}
+              </ul>
+
           </CardContent>
-          <CardActions>
-            <Button size="small">Learn More</Button>
+          <CardActions className="opinionCountMain"  >
+            <div className="opinionCount"><ThumbUpIcon/><p>&nbsp;{props.agreeCount}</p></div>
+            <div className="opinionCount"><ThumbDownIcon/><p>&nbsp; {props.disagreeCount}</p></div>
           </CardActions>
         </Card>
       );

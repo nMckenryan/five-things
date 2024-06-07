@@ -13,14 +13,17 @@ This was built with the T3 Stack project bootstrapped with create-t3-app with:
 
 - [x] Basic Setup and Deployment
 - [x] DEPLOY to Vercel
-- [] Draft UI with MUI
+- [x] Draft UI with MUI
+- [] Generate five things insertion window ui
 - [] Plug in mock Data to the ui
 - [] Set up VercelPostgre  DB
+- [] Crud functions
 - [] Attach DB to UI
 - [] set up unit tests for operations
 - [] Add authentication
+- [] show other user's 5 things
 
 OPTIONAL AFTER MVP:
 - [] Analytics
 - [] Image Upload
-- [] Make the cards float everywhere in a way that isn't annoying
+- [] Make the cards float everywhere in a way that isn't annoying (FramerMotion)

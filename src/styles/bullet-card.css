@@ -1,0 +1,21 @@
+.opinionCountMain {
+    display: flex;
+    justify-content: space-between;
+}
+
+.opinionCount {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+}
+
+.goodBullets {
+    list-style-type: "➕";
+    color: transparent;  
+    text-shadow: 0 0 0 green;
+}
+
+.fiveCard {
+    max-width: 500px;
+    padding: 8px;
+}
