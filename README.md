@@ -14,9 +14,9 @@ This was built with the T3 Stack project bootstrapped with create-t3-app with:
 - [x] Basic Setup and Deployment
 - [x] DEPLOY to Vercel
 - [x] Draft UI with MUI
-- [] Generate five things insertion window ui
-- [] Plug in mock Data to the ui
-- [] Set up VercelPostgre  DB
+- [x] Generate five things insertion window ui
+- [x] Plug in mock Data to the ui
+- [] Set up VercelPostgres  DB
 - [] Crud functions
 - [] Attach DB to UI
 - [] set up unit tests for operations
