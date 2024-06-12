@@ -19,7 +19,7 @@ export default function BulletCard(props: Props) {
               {props.subjectName}
             </Typography>            
               <ul className="goodBullets">
-                {props.fiveGoodThings.map(thing => <li key={thing.indexOf(thing)}>{thing}</li>)}
+                {props.fiveGoodThings.map(thing => <li key={thing.indexOf(thing)}>{thing.toString()}</li>)}
               </ul>
 
           </CardContent>

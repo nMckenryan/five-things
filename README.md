@@ -16,7 +16,8 @@ This was built with the T3 Stack project bootstrapped with create-t3-app with:
 - [x] Draft UI with MUI
 - [x] Generate five things insertion window ui
 - [x] Plug in mock Data to the ui
-- [] Set up VercelPostgres  DB
+- [x] Set up VercelPostgres  DB
+- [x] Configure postgresDB function to use real data
 - [] Crud functions
 - [] Attach DB to UI
 - [] set up unit tests for operations
