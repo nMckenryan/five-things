@@ -3,6 +3,7 @@ import { ThemeProvider } from '@mui/material/styles';
 import theme from '../theme';
 import "~/styles/globals.css";
 import { ClerkProvider, SignInButton, SignedIn, SignedOut, UserButton } from '@clerk/nextjs'
+import LoginIcon from '@mui/icons-material/Login';
 
 import { GeistSans } from "geist/font/sans";
 
@@ -24,9 +25,12 @@ export default function RootLayout({
         
         <AppRouterCacheProvider>
           <ThemeProvider theme={theme}>
-          <header>
+          <header style={{display: "flex", justifyContent: "flex-end", backgroundColor: "green", position: "sticky", top: "0"}}>
             <SignedOut>
-              <SignInButton />
+              <SignInButton>
+                {/* annoying workaround to make the icon clickable when wrapped in clerk button */}
+                <LoginIcon style={{cursor: "hand"}}/>
+              </SignInButton>
             </SignedOut>
             <SignedIn>
               <UserButton />
