@@ -10,6 +10,10 @@ import Stack from '@mui/material/Stack';
 import Button from "@mui/material/Button";
 import "../../styles/insert-card.css";
 
+import axios from 'axios';
+import { SyntheticEvent, useState } from 'react';
+
+
 const style = {
   position: 'absolute',
   top: '50%',
@@ -26,6 +30,22 @@ export default function InsertCard() {
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
+  const handleSubmit = async (event: SyntheticEvent) => {
+    event.preventDefault();
+
+    const data = {
+      name: 'John Doe',
+      age: 30,
+    };
+
+    try {
+      await axios.post('/api/records', data);
+      console.log('Record added successfully');
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
     return (
       <>
         <Card className="fiveCard" sx={{ minWidth: 300, minHeight: 300, display: "flex", justifyContent: "center", alignItems: "center" }} onClick={handleOpen}>
@@ -40,6 +60,7 @@ export default function InsertCard() {
           aria-labelledby="modal-modal-title"
           aria-describedby="modal-modal-description"
         >
+          <form onSubmit={handleSubmit}>
           <Card sx={style}>
           <CardContent>    
               <Stack
@@ -66,11 +87,12 @@ export default function InsertCard() {
             <Button variant="outlined" startIcon={<DeleteIcon />}>
               Delete
             </Button>
-            <Button variant="outlined" endIcon={<AddCircleIcon />}>
+            <Button type="submit" variant="outlined" endIcon={<AddCircleIcon />}>
               Send
             </Button>
           </CardActions>
           </Card>
+          </form>
       </Modal>
 
         </>
