@@ -10,6 +10,7 @@ import Stack from '@mui/material/Stack';
 import Button from "@mui/material/Button";
 import "../../styles/insert-card.css";
 
+
 const style = {
   position: 'absolute',
   top: '50%',
@@ -21,10 +22,27 @@ const style = {
 };
 
 
-export default function InsertCard() {
+export default function InsertCard({ createPost }: { createPost: (subjectName: string, fiveThing1: string, fiveThing2: string, fiveThing3: string, fiveThing4: string, fiveThing5: string) => Promise<void> }) {
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
+
+  const [formData, setFormData] = React.useState({
+    subjectName: "sub",
+    n1: "1",
+    n2: "2",
+    n3: "3",
+    n4: "4",
+    n5: "5"
+  });
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = e.target;
+    setFormData({
+      ...formData,
+      [name]: value
+    });
+  };
 
     return (
       <>
@@ -41,35 +59,34 @@ export default function InsertCard() {
           aria-describedby="modal-modal-description"
         >
           <Card sx={style}>
-          <CardContent>    
-              <Stack
-                component="form"
-                sx={{
-                  width: '60ch'
-                }}
-                spacing={1}
-                noValidate
-                autoComplete="off"
-              >            
-                <Typography id="modal-modal-title" variant="h6" component="h2" sx={{ textAlign: "center"}}>
-                  Add New Five Things!
-                </Typography> 
-                <TextField id="outlined-basic" label="Subject" variant="outlined" color="success" />
-                <TextField className="thingInput" label="Nice Thing 1" variant="outlined" color="success" required />
-                <TextField className="thingInput" label="Nice Thing 2" variant="outlined" color="success" required/>
-                <TextField className="thingInput" label="Nice Thing 3" variant="outlined" color="success" required/>
-                <TextField className="thingInput" label="Nice Thing 4" variant="outlined" color="success" required />
-                <TextField className="thingInput" label="Nice Thing 5" variant="outlined" color="success" required />
-              </Stack>
-            </CardContent>
-          <CardActions sx={{display: "flex", justifyContent: "space-between"}}>
-            <Button variant="outlined" startIcon={<DeleteIcon />}>
-              Delete
-            </Button>
-            <Button variant="outlined" endIcon={<AddCircleIcon />}>
-              Send
-            </Button>
-          </CardActions>
+            <form action={createPost(formData.subjectName, formData.n1, formData.n2, formData.n3, formData.n4, formData.n5)}>
+              <CardContent>    
+                  <Stack
+                    sx={{
+                      width: '60ch'
+                    }}
+                    spacing={1}
+                  >            
+                    <Typography id="modal-modal-title" variant="h6" component="h2" sx={{ textAlign: "center"}}>
+                      Add New Five Things!
+                    </Typography> 
+                    <TextField className="thingInput" label="Subject" name="subjectName" variant="outlined" color="success" />
+                    <TextField className="thingInput" label="Nice Thing 1" name="n1" variant="outlined" color="success" onChange={handleChange} required />
+                    <TextField className="thingInput" label="Nice Thing 2" name="n2" variant="outlined" color="success" onChange={handleChange} required/>
+                    <TextField className="thingInput" label="Nice Thing 3" name="n3" variant="outlined" color="success"  onChange={handleChange} required/>
+                    <TextField className="thingInput" label="Nice Thing 4" name='"n4' variant="outlined" color="success" onChange={handleChange} required />
+                    <TextField className="thingInput" label="Nice Thing 5" name="n5" variant="outlined" color="success" onChange={handleChange} required />
+                  </Stack>
+                </CardContent>
+              <CardActions sx={{display: "flex", justifyContent: "space-between"}}>
+                <Button variant="outlined" startIcon={<DeleteIcon />}>
+                  Delete
+                </Button>
+                <Button variant="outlined" endIcon={<AddCircleIcon />} type="submit">
+                  Send
+                </Button>
+              </CardActions>
+          </form>
           </Card>
       </Modal>
 
