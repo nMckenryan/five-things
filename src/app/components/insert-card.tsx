@@ -57,12 +57,8 @@ export default function InsertCard({ createPost }: { createPost: (subjectName: s
 
     return (
       <>
-        <Card className="fiveCard" sx={{ minWidth: 300, minHeight: 300, display: "flex", justifyContent: "center", alignItems: "center" }} onClick={handleOpen}>
-          <CardContent>            
-            <AddCircleIcon sx={{ fontSize: 100 }}/>
-          </CardContent>
-        </Card>
-        
+        <AddCircleIcon sx={{ color: "white" }} onClick={handleOpen}/>
+
         <Modal
           open={open}
           onClose={handleClose}

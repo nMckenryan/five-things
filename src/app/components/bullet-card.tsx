@@ -13,7 +13,7 @@ interface Props {
 
 export default function BulletCard(props: Props) {
     return (
-        <Card className="fiveCard" sx={{ minWidth: 275 }}>
+        <Card className="fiveCard" sx={{ background: "#EDFA8B", boxShadow: "5px 5px 5px 0px rgba(0,0,0,0.5)"}}>
           <CardContent>            
             <Typography variant="h5" component="div" className="subjectName">
               {props.subjectName}

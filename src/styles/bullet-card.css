@@ -12,11 +12,12 @@
 .goodBullets {
     list-style-type: "➕";
     color: transparent;  
-    text-shadow: 0 0 0 green;
+    text-shadow: 0 0 0 #35452a;
     text-wrap: none;
 }
 
 .fiveCard {
+    min-width: 275px;
     max-width: 500px;
     padding: 8px;
 }
