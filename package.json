@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "build": "next build",
-    "dev": "next dev --turbo",
+    "dev": "next dev",
     "lint": "next lint",
     "start": "next start",
     "db:push": "drizzle-kit push",
@@ -22,6 +22,7 @@
     "@fontsource/bebas-neue": "^5.0.20",
     "@mui/icons-material": "^5.15.19",
     "@mui/material-nextjs": "^5.15.11",
+    "@sentry/nextjs": "^8.17.0",
     "@t3-oss/env-nextjs": "^0.10.1",
     "@vercel/postgres": "^0.8.0",
     "drizzle-orm": "^0.30.10",
