@@ -8,12 +8,12 @@ interface Props {
   fiveGoodThings: string[];
   agreeCount: number;
   disagreeCount: number;
-  userName: string;
+  userId: string;
 }
 
 export default function BulletCard(props: Props) {
     return (
-        <Card className="fiveCard" sx={{ minWidth: 275 }}>
+        <Card className="fiveCard" sx={{ background: "#EDFA8B", boxShadow: "5px 5px 5px 0px rgba(0,0,0,0.5)"}}>
           <CardContent>            
             <Typography variant="h5" component="div" className="subjectName">
               {props.subjectName}
@@ -25,7 +25,6 @@ export default function BulletCard(props: Props) {
           </CardContent>
           <CardActions className="opinionCountMain"  >
             <div className="opinionCount"><ThumbUpIcon/><p>&nbsp;{props.agreeCount}</p></div>
-            <div className="opinionCount"><p>&nbsp;{props.userName}</p></div>
             <div className="opinionCount"><ThumbDownIcon/><p>&nbsp; {props.disagreeCount}</p></div>
           </CardActions>
         </Card>

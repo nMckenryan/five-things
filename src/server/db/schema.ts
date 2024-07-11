@@ -31,7 +31,7 @@ export const posts = createTable(
     fiveThing3: varchar("fiveThing3", { length: 1024 }).notNull(),
     fiveThing4: varchar("fiveThing4", { length: 1024 }).notNull(),
     fiveThing5: varchar("fiveThing5", { length: 1024 }).notNull(),
-    userName: varchar("username", { length: 256 }).notNull(),
+    userId: varchar("userId", { length: 256 }).notNull(),
     createdAt: timestamp("created_at", { withTimezone: true })
       .default(sql`CURRENT_TIMESTAMP`)
       .notNull(),

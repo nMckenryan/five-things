@@ -18,10 +18,13 @@ This was built with the T3 Stack project bootstrapped with create-t3-app with:
 - [x] Plug in mock Data to the ui
 - [x] Set up VercelPostgres  DB
 - [x] Configure postgresDB function to use real data
-- [] Crud functions
-- [] Attach DB to UI
+- [] Crud functions:
+-- [x] Add 5 things
+-- [] Edit 5 things
+-- [] Delete 5 things
+- [x] Attach DB to UI
 - [] set up unit tests for operations
-- [] Add authentication
+- [x] Add authentication
 - [] show other user's 5 things
 
 OPTIONAL AFTER MVP:
