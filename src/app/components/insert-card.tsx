@@ -10,6 +10,7 @@ import Stack from '@mui/material/Stack';
 import Button from "@mui/material/Button";
 import "../../styles/insert-card.css";
 import { useUser } from "@clerk/nextjs";
+import { auth } from "@clerk/nextjs/server";
 
 const style = {
   position: 'absolute',
@@ -22,14 +23,10 @@ const style = {
 };
 
 
-export default function InsertCard({ createPost }: { createPost: (subjectName: string, fiveThing1: string, fiveThing2: string, fiveThing3: string, fiveThing4: string, fiveThing5: string, userName: string) => Promise<void> }) {
+export default function InsertCard({ createPost }: { createPost: (subjectName: string, fiveThing1: string, fiveThing2: string, fiveThing3: string, fiveThing4: string, fiveThing5: string) => Promise<void> }) {
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
-
-  const { user } = useUser();
-
-  const currentUsername = user?.username ?? "";
 
   const [formData, setFormData] = React.useState({
     subjectName: "",
@@ -38,7 +35,6 @@ export default function InsertCard({ createPost }: { createPost: (subjectName: s
     n3: "",
     n4: "",
     n5: "",
-    userName: currentUsername
   });
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -51,7 +47,7 @@ export default function InsertCard({ createPost }: { createPost: (subjectName: s
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    await createPost(formData.subjectName, formData.n1, formData.n2, formData.n3, formData.n4, formData.n5, formData.userName);
+    await createPost(formData.subjectName, formData.n1, formData.n2, formData.n3, formData.n4, formData.n5);
     handleClose();
   };
 

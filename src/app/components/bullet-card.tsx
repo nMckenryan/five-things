@@ -8,7 +8,7 @@ interface Props {
   fiveGoodThings: string[];
   agreeCount: number;
   disagreeCount: number;
-  userName: string;
+  userId: string;
 }
 
 export default function BulletCard(props: Props) {
@@ -25,7 +25,6 @@ export default function BulletCard(props: Props) {
           </CardContent>
           <CardActions className="opinionCountMain"  >
             <div className="opinionCount"><ThumbUpIcon/><p>&nbsp;{props.agreeCount}</p></div>
-            <div className="opinionCount"><p>&nbsp;{props.userName}</p></div>
             <div className="opinionCount"><ThumbDownIcon/><p>&nbsp; {props.disagreeCount}</p></div>
           </CardActions>
         </Card>
