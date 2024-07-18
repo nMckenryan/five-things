@@ -1,7 +1,10 @@
 import 'server-only';
 import { db } from './db';
 import { auth } from '@clerk/nextjs/server';
-
+import { and, eq } from 'drizzle-orm';
+import { posts } from './db/schema';
+import { revalidatePath } from 'next/cache';
+import { redirect } from 'next/dist/client/components/redirect';
 
 
 export async function getPosts() {
@@ -35,4 +38,14 @@ export async function getPost(id: number) {
     if(post.userId !== user.userId) throw new Error("Cannot access posts: Unauthorised");
 
     return post;
+}
+
+
+export async function deletePost(id: number) {
+    const user = auth();
+    if(!user.userId) throw new Error("Cannot delete posts: Unauthorised");
+
+    await db.delete(posts).where(and (eq(posts.id, id), eq(posts.userId, user.userId)));
+
+    redirect("/");
 }

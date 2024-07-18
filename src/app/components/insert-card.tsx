@@ -11,6 +11,8 @@ import Button from "@mui/material/Button";
 import "../../styles/insert-card.css";
 import { useUser } from "@clerk/nextjs";
 import { auth } from "@clerk/nextjs/server";
+import { revalidatePath } from "next/cache";
+import { redirect } from "next/dist/client/components/redirect";
 
 const style = {
   position: 'absolute',
@@ -49,6 +51,7 @@ export default function InsertCard({ createPost }: { createPost: (subjectName: s
     e.preventDefault();
     await createPost(formData.subjectName, formData.n1, formData.n2, formData.n3, formData.n4, formData.n5);
     handleClose();
+
   };
 
     return (

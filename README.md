@@ -22,7 +22,7 @@ This was built with the T3 Stack project bootstrapped with create-t3-app with:
 - [] Crud functions:
 -- [x] Add 5 things
 -- [] Edit 5 things
--- [] Delete 5 things
+-- [x] Delete 5 things
 - [x] Attach DB to UI
 - [] set up unit tests for operations
 - [x] Add authentication
