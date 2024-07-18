@@ -9,6 +9,7 @@ import { Typography } from '@mui/material';
 import { GeistSans } from "geist/font/sans";
 import InsertCard from './components/insert-card';
 import { createPost } from './actions/actions';
+import Link from 'next/link';
 
 export const metadata = {
   title: "Five Things!",
@@ -20,8 +21,10 @@ export const metadata = {
 
 export default function RootLayout({
   children,
+  modal
 }: {
   children: React.ReactNode;
+  modal: React.ReactNode;
 }) {
   
   return (
@@ -33,7 +36,9 @@ export default function RootLayout({
           <ThemeProvider theme={theme}>
             {/* TOP NAV */}
           <header style={{display: "flex", justifyContent: "space-between", backgroundColor: "#407056", position: "sticky", top: "0", padding: "8px", boxShadow: "0px 4px 4px rgba(0, 0, 0, 0.25)"}}>
-            <Typography fontFamily="Bebas Neue" fontSize="2rem" color={"white"}>Five Things!</Typography>
+            <Link href="/">
+              <Typography fontFamily="Bebas Neue" fontSize="2rem" color={"white"}>Five Things!</Typography>
+            </Link>
             <div className="leftNav" style={{display: "flex", alignItems: "center", gap: "1rem", padding: "4px"}}>
               <SignedOut>
                 <SignInButton>
@@ -49,6 +54,8 @@ export default function RootLayout({
           </header>
           <main>
             {children}
+            {modal}
+            <div id="modal-root"/>
           </main>
           </ThemeProvider>
         </AppRouterCacheProvider>

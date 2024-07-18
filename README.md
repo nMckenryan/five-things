@@ -18,6 +18,7 @@ This was built with the T3 Stack project bootstrapped with create-t3-app with:
 - [x] Plug in mock Data to the ui
 - [x] Set up VercelPostgres  DB
 - [x] Configure postgresDB function to use real data
+- [] Set up Parallel routes
 - [] Crud functions:
 -- [x] Add 5 things
 -- [] Edit 5 things

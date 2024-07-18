@@ -20,3 +20,19 @@ export async function getMyPosts() {
     });
     return posts;
 }
+
+export async function getPost(id: number) {
+
+    const user = auth();
+    if(!user.userId) throw new Error("Cannot access posts: Unauthorised");
+
+    const post  = await db.query.posts.findFirst({
+        where: (model, { eq }) => eq(model.id, id),
+    });
+
+    if(!post) throw new Error("Post not found");
+
+    if(post.userId !== user.userId) throw new Error("Cannot access posts: Unauthorised");
+
+    return post;
+}
