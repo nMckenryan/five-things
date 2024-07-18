@@ -14,10 +14,21 @@
     color: transparent;  
     text-shadow: 0 0 0 #35452a;
     text-wrap: none;
+    margin-top: 0.5;
+    margin-bottom: 0;
 }
 
 .fiveCard {
     min-width: 275px;
     max-width: 500px;
+    padding: 4px;
+    line-height: 1.5rem;
+}
+
+.fiveCardExpanded {
+    min-width: 550px;
+    max-width: 1000px;
     padding: 8px;
+    font-size: larger;
+    line-height: 2rem;
 }
