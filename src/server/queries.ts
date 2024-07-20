@@ -40,6 +40,15 @@ export async function getPost(id: number) {
     return post;
 }
 
+export async function updatePost2(id: number, subjectName: string, fiveThing1: string, fiveThing2: string, fiveThing3: string, fiveThing4: string, fiveThing5: string) {
+    const user = auth();
+    if(!user.userId) throw new Error("Cannot update posts: Unauthorised");
+
+    await db.update(posts).set({subjectName, fiveThing1, fiveThing2, fiveThing3, fiveThing4, fiveThing5}).where(and (eq(posts.id, id), eq(posts.userId, user.userId)));
+    
+    redirect("/");
+}
+
 
 export async function deletePost(id: number) {
     const user = auth();

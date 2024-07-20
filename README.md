@@ -18,17 +18,16 @@ This was built with the T3 Stack project bootstrapped with create-t3-app with:
 - [x] Plug in mock Data to the ui
 - [x] Set up VercelPostgres  DB
 - [x] Configure postgresDB function to use real data
-- [] Set up Parallel routes
-- [] Crud functions:
+- [x] Set up Parallel routes
+- [x] Crud functions:
 -- [x] Add 5 things
--- [] Edit 5 things
+-- [x] Edit 5 things
 -- [x] Delete 5 things
 - [x] Attach DB to UI
-- [] set up unit tests for operations
 - [x] Add authentication
-- [] show other user's 5 things
+- [x] show other user's 5 things
 
-OPTIONAL AFTER MVP:
-- [] Analytics
-- [] Image Upload
-- [] Make the cards float everywhere in a way that isn't annoying (FramerMotion)
+- [] patch up UI for crud functions
+- [] toast confirmation/reload page on update
+- [] clean up edit modal
+- [] set up unit tests for operations
