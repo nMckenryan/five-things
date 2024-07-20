@@ -19,7 +19,6 @@ export function Modal({ children }: { children: React.ReactNode }) {
   }
 
   return createPortal(
-
       <dialog ref={dialogRef} onClose={onDismiss} style={{ backgroundColor: 'red', margin: '0'}}>
         {children}
         <button onClick={onDismiss} className="close-button" />

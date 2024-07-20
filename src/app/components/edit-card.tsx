@@ -9,10 +9,7 @@ import TextField from "@mui/material/TextField";
 import Stack from '@mui/material/Stack';
 import Button from "@mui/material/Button";
 import "../../styles/insert-card.css";
-import { useUser } from "@clerk/nextjs";
-import { auth } from "@clerk/nextjs/server";
-import { revalidatePath } from "next/cache";
-import { redirect } from "next/dist/client/components/redirect";
+
 
 const style = {
   position: 'absolute',
@@ -25,7 +22,10 @@ const style = {
 };
 
 
-export default function InsertCard({ createPost }: { createPost: (subjectName: string, fiveThing1: string, fiveThing2: string, fiveThing3: string, fiveThing4: string, fiveThing5: string) => Promise<void> }) {
+export default function EditCard({ postId } : { postId: number }) {
+  
+},
+   { editPost }: { editPost: (subjectName: string, fiveThing1: string, fiveThing2: string, fiveThing3: string, fiveThing4: string, fiveThing5: string) => Promise<void> }) {
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
@@ -49,9 +49,8 @@ export default function InsertCard({ createPost }: { createPost: (subjectName: s
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    await createPost(formData.subjectName, formData.n1, formData.n2, formData.n3, formData.n4, formData.n5);
+    await editPost(formData.subjectName, formData.n1, formData.n2, formData.n3, formData.n4, formData.n5);
     handleClose();
-
   };
 
     return (
