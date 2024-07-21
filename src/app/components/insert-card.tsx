@@ -2,17 +2,26 @@
 
 import { Card, CardContent, Typography, CardActions } from "@mui/material";
 import AddCircleIcon from "@mui/icons-material/AddCircle";
-import DeleteIcon from "@mui/icons-material/Delete";
+import CancelIcon from "@mui/icons-material/Cancel";
 import React from "react";
 import Modal from "@mui/material/Modal";
 import TextField from "@mui/material/TextField";
 import Stack from "@mui/material/Stack";
 import Button from "@mui/material/Button";
-import "../../styles/insert-card.css";
-import { useForm, SubmitHandler, Controller } from "react-hook-form";
+
+import { useForm, type SubmitHandler, Controller } from "react-hook-form";
 import { createPost } from "../actions/actions";
-import Snackbar, { SnackbarOrigin } from "@mui/material/Snackbar";
-import { string } from "zod";
+import Snackbar from "@mui/material/Snackbar";
+import CloseIcon from "@mui/icons-material/Close";
+
+interface IFormInputs {
+  subjectName: string;
+  firstThing: string;
+  secondThing: string;
+  thirdThing: string;
+  fourthThing: string;
+  fifthThing: string;
+}
 
 const style = {
   position: "absolute",
@@ -24,26 +33,7 @@ const style = {
   p: 2,
 };
 
-interface Props {
-  subjectName: string;
-  firstThing: string;
-  secondThing: string;
-  thirdThing: string;
-  fourthThing: string;
-  fifthThing: string;
-  postId: number;
-}
-
-interface IFormInputs {
-  subjectName: string;
-  firstThing: string;
-  secondThing: string;
-  thirdThing: string;
-  fourthThing: string;
-  fifthThing: string;
-}
-
-export default function InsertCard(props: Props) {
+export default function InsertCard() {
   const [modalOpen, setModalOpen] = React.useState(false);
   const handleOpen = () => setModalOpen(true);
   const handleClose = () => setModalOpen(false);
@@ -76,6 +66,7 @@ export default function InsertCard(props: Props) {
       setToastMessage("Error: " + String(error));
     }
     handleToastOpen();
+    handleClose();
   };
 
   return (
@@ -88,7 +79,7 @@ export default function InsertCard(props: Props) {
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description"
       >
-        <div>
+        <>
           <Snackbar
             anchorOrigin={{
               vertical: "top",
@@ -101,12 +92,8 @@ export default function InsertCard(props: Props) {
           <Card sx={style}>
             <form onSubmit={handleSubmit(onSubmit)}>
               <CardContent>
-                <Stack
-                  sx={{
-                    width: "60ch",
-                  }}
-                  spacing={1}
-                >
+                <div className="modalHeader">
+                  <div></div>
                   <Typography
                     id="modal-modal-title"
                     variant="h6"
@@ -115,12 +102,18 @@ export default function InsertCard(props: Props) {
                   >
                     Add New Five Things!
                   </Typography>
-
+                  <CloseIcon style={{ cursor: "pointer" }} />
+                </div>
+                <Stack
+                  sx={{
+                    width: "60ch",
+                  }}
+                  spacing={1}
+                >
                   <Controller
                     name="subjectName"
                     control={control}
                     rules={{ required: true }}
-                    defaultValue={props.subjectName}
                     render={({ field }) => (
                       <TextField
                         label="Subject"
@@ -137,7 +130,6 @@ export default function InsertCard(props: Props) {
                     name="firstThing"
                     control={control}
                     rules={{ required: true }}
-                    defaultValue={props.firstThing}
                     render={({ field }) => (
                       <TextField
                         label="First Thing"
@@ -154,7 +146,6 @@ export default function InsertCard(props: Props) {
                     name="secondThing"
                     control={control}
                     rules={{ required: true }}
-                    defaultValue={props.secondThing}
                     render={({ field }) => (
                       <TextField
                         label="Second Thing"
@@ -171,7 +162,6 @@ export default function InsertCard(props: Props) {
                     name="thirdThing"
                     control={control}
                     rules={{ required: true }}
-                    defaultValue={props.thirdThing}
                     render={({ field }) => (
                       <TextField
                         label="Third Thing"
@@ -188,7 +178,6 @@ export default function InsertCard(props: Props) {
                     name="fourthThing"
                     control={control}
                     rules={{ required: true }}
-                    defaultValue={props.fourthThing}
                     render={({ field }) => (
                       <TextField
                         label="Fourth Thing"
@@ -205,7 +194,6 @@ export default function InsertCard(props: Props) {
                     name="fifthThing"
                     control={control}
                     rules={{ required: true }}
-                    defaultValue={props.fifthThing}
                     render={({ field }) => (
                       <TextField
                         label="Fifth Thing"
@@ -224,10 +212,10 @@ export default function InsertCard(props: Props) {
               >
                 <Button
                   variant="outlined"
-                  startIcon={<DeleteIcon />}
-                  onClick={handleToastOpen}
+                  startIcon={<CancelIcon />}
+                  onClick={handleClose}
                 >
-                  Delete
+                  Cancel
                 </Button>
                 <Button
                   variant="outlined"
@@ -239,7 +227,7 @@ export default function InsertCard(props: Props) {
               </CardActions>
             </form>
           </Card>
-        </div>
+        </>
       </Modal>
     </>
   );
