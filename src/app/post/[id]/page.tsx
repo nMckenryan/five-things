@@ -1,4 +1,5 @@
 import FullPagePostView from "~/app/components/full-post-page";
+import PageLayout from "~/app/components/page-layout";
 
 export default function PostPage({
   params: { id: postId },
@@ -12,18 +13,8 @@ export default function PostPage({
   }
 
   return (
-    <div
-      style={{
-        background: "linear-gradient(to bottom, #256670, #1E425E);",
-        height: "93vh",
-        display: "flex",
-        alignContent: "center",
-        justifyContent: "center",
-        alignItems: "flex-start",
-        padding: "2rem",
-      }}
-    >
+    <PageLayout key={postIdAsNumber} postId={postIdAsNumber}>
       <FullPagePostView postId={postIdAsNumber} />
-    </div>
+    </PageLayout>
   );
 }

@@ -2,7 +2,6 @@
 
 import { Card, CardContent, CardActions, TextField } from "@mui/material";
 import AddCircleIcon from "@mui/icons-material/AddCircle";
-import DeleteIcon from "@mui/icons-material/Delete";
 import "../../styles/bullet-card.css";
 import Button from "@mui/material/Button";
 import React from "react";
@@ -10,6 +9,8 @@ import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
 import { useForm, type SubmitHandler, Controller } from "react-hook-form";
 import { updatePost } from "../actions/actions";
+import CloseIcon from "@mui/icons-material/Close";
+import DeleteButton from "./delete-button";
 
 const style = {
   position: "absolute",
@@ -62,6 +63,16 @@ export default function EditCard(props: Props) {
 
   return (
     <Card sx={style}>
+      <div
+        className="window-taskbar"
+        style={{ display: "flex", justifyContent: "flex-end" }}
+      >
+        <DeleteButton postIdToDelete={props.postId} />
+        <Button style={{ border: "none", background: "none" }}>
+          <CloseIcon style={{ cursor: "pointer" }} />
+        </Button>
+      </div>
+
       <form onSubmit={handleSubmit(onSubmit)}>
         <CardContent style={{ paddingTop: "0px", paddingBottom: "0px" }}>
           <Stack
@@ -76,7 +87,7 @@ export default function EditCard(props: Props) {
               component="h2"
               sx={{ textAlign: "center" }}
             >
-              Edit New Five Things!
+              Edit Five Things!
             </Typography>
             <Controller
               name="subjectName"
@@ -146,9 +157,6 @@ export default function EditCard(props: Props) {
           <div>{errors.postThing3 && <span>This field is required</span>}</div>
           <div>{errors.postThing4 && <span>This field is required</span>}</div>
           <div>{errors.postThing5 && <span>This field is required</span>}</div>
-          <Button variant="outlined" startIcon={<DeleteIcon />}>
-            Delete
-          </Button>
           <Button variant="outlined" endIcon={<AddCircleIcon />} type="submit">
             Edit
           </Button>

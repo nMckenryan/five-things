@@ -8,10 +8,7 @@ import {
 import ThumbUpIcon from "@mui/icons-material/ThumbUp";
 import ThumbDownIcon from "@mui/icons-material/ThumbDown";
 import "../../styles/bullet-card.css";
-import DeleteIcon from "@mui/icons-material/Delete";
-import EditIcon from "@mui/icons-material/Edit";
 import { deletePost } from "~/server/queries";
-import EditCard from "./edit-card";
 
 interface Props {
   subjectName: string;
@@ -36,15 +33,6 @@ export default function BulletCardModal(props: Props) {
         boxShadow: "5px 5px 5px 0px rgba(0,0,0,0.5)",
       }}
     >
-      {/* <EditCard
-        postId={props.postId}
-        subjectName={props.subjectName}
-        postThing1={props.postThing1}
-        postThing2={props.postThing2}
-        postThing3={props.postThing3}
-        postThing4={props.postThing4}
-        postThing5={props.postThing5}
-      /> */}
       <form
         action={async () => {
           "use server";

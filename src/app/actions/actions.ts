@@ -51,3 +51,13 @@ export async function updatePost(postId: number, subjectName: string, fiveThing1
         console.log("Could not update post: ", error);
     }
 }
+
+
+export async function deletePost(postId: number) {
+    console.log("updating post");
+    try {
+        await db.delete(posts).where(eq(posts.id, postId));
+    } catch (error) {
+        console.log("Could not delete post: ", error);
+    }
+}

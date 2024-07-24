@@ -1,5 +1,5 @@
 import FullPagePostView from "~/app/components/full-post-page";
-import { PostViewModal } from "./modal";
+import { PostViewModal } from "./post-view-modal";
 
 export default function PostModal({
   params: { id: postId },
@@ -13,7 +13,7 @@ export default function PostModal({
   }
 
   return (
-    <PostViewModal>
+    <PostViewModal postId={postIdAsNumber}>
       <FullPagePostView postId={postIdAsNumber} />
     </PostViewModal>
   );
