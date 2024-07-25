@@ -1,8 +1,12 @@
-import { getPost } from "~/server/queries";
+import { getSinglePost } from "~/server/queries";
 import BulletCardModal from "./bullet-card-modal";
+import { clerkClient } from "@clerk/nextjs/server";
 
 export default async function FullPagePostView(props: { postId: number }) {
-  const post = await getPost(props.postId);
+  const post = await getSinglePost(props.postId);
+
+  const user = await clerkClient.users.getUser(post.userId);
+  const userName = user.fullName ?? "Anonymous";
 
   return (
     <BulletCardModal
@@ -15,7 +19,7 @@ export default async function FullPagePostView(props: { postId: number }) {
       postThing5={post.fiveThing5}
       agreeCount={post.agreeCount}
       disagreeCount={post.disagreeCount}
-      userId={post.userId}
+      userName={userName}
       dateCreated={post.createdAt}
       key={post.id}
     />

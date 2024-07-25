@@ -26,7 +26,8 @@ This was built with the T3 Stack project bootstrapped with create-t3-app with:
 - [x] Attach DB to UI
 - [x] Add authentication
 - [x] show other user's 5 things
-- [ ] display usernames properly
+- [x] display usernames properly
+- [] rig up up/downvotes
 - [x] patch up UI for crud functions
 - [x] toast confirmation on server actions
 - [] reload page on update

@@ -3,6 +3,9 @@ import EditIcon from "@mui/icons-material/Edit";
 import CloseIcon from "@mui/icons-material/Close";
 import Button from "@mui/material/Button";
 import DeleteButton from "./delete-button";
+import { getPostUserId } from "~/server/queries";
+import { auth } from "@clerk/nextjs/server";
+import { SignedIn } from "@clerk/nextjs";
 
 export default function PageLayout({
   postId,
@@ -11,6 +14,16 @@ export default function PageLayout({
   postId: number;
   children: React.ReactNode;
 }) {
+  const user = auth();
+  const loggedInUserId = user.userId ?? "Not Logged In";
+
+  const postUserId = async () => {
+    const result = await getPostUserId(postId);
+    return result ?? "Empty User Id";
+  };
+
+  const isUserAuthorisedToEdit = loggedInUserId === postUserId();
+
   return (
     <div
       className="page-background"
@@ -36,12 +49,19 @@ export default function PageLayout({
           className="window-taskbar"
           style={{ display: "flex", justifyContent: "flex-end" }}
         >
-          <DeleteButton postIdToDelete={postId} />
-          <Button className="editButton" href={`/post/${postId}/edit`}>
-            <EditIcon />
-          </Button>
+          <SignedIn>
+            {isUserAuthorisedToEdit && (
+              <>
+                <DeleteButton postIdToDelete={Number(postId)} />
 
-          <Button style={{ border: "none", background: "none" }}>
+                <Button className="editButton" href={`/post/${postId}/edit`}>
+                  <EditIcon />
+                </Button>
+              </>
+            )}
+          </SignedIn>
+
+          <Button>
             <CloseIcon style={{ cursor: "pointer" }} />
           </Button>
         </div>

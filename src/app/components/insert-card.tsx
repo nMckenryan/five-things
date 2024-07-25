@@ -13,6 +13,7 @@ import { useForm, type SubmitHandler, Controller } from "react-hook-form";
 import { createPost } from "../actions/actions";
 import Snackbar from "@mui/material/Snackbar";
 import CloseIcon from "@mui/icons-material/Close";
+import Link from "next/link";
 
 interface IFormInputs {
   subjectName: string;
@@ -102,7 +103,9 @@ export default function InsertCard() {
                   >
                     Add New Five Things!
                   </Typography>
-                  <CloseIcon style={{ cursor: "pointer" }} />
+                  <Link href="/">
+                    <CloseIcon style={{ cursor: "pointer" }} />
+                  </Link>
                 </div>
                 <Stack
                   sx={{

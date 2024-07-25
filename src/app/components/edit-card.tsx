@@ -11,6 +11,8 @@ import { useForm, type SubmitHandler, Controller } from "react-hook-form";
 import { updatePost } from "../actions/actions";
 import CloseIcon from "@mui/icons-material/Close";
 import DeleteButton from "./delete-button";
+import { useRouter } from "next/navigation";
+import Link from "next/link";
 
 const style = {
   position: "absolute",
@@ -42,6 +44,8 @@ interface IFormInputs {
 }
 
 export default function EditCard(props: Props) {
+  const router = useRouter();
+
   const {
     handleSubmit,
     control,
@@ -59,6 +63,8 @@ export default function EditCard(props: Props) {
       data.postThing4,
       data.postThing5
     );
+
+    router.back();
   };
 
   return (
@@ -68,9 +74,11 @@ export default function EditCard(props: Props) {
         style={{ display: "flex", justifyContent: "flex-end" }}
       >
         <DeleteButton postIdToDelete={props.postId} />
-        <Button style={{ border: "none", background: "none" }}>
-          <CloseIcon style={{ cursor: "pointer" }} />
-        </Button>
+        <Link href="/">
+          <Button style={{ border: "none", background: "none" }}>
+            <CloseIcon style={{ cursor: "pointer" }} />
+          </Button>
+        </Link>
       </div>
 
       <form onSubmit={handleSubmit(onSubmit)}>

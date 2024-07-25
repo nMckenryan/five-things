@@ -20,7 +20,7 @@ interface Props {
   agreeCount: number;
   disagreeCount: number;
   dateCreated: Date;
-  userId: string;
+  userName: string;
   postId: number;
 }
 
@@ -59,7 +59,7 @@ export default function BulletCardModal(props: Props) {
               <p>&nbsp;{props.agreeCount}</p>
             </div>
             <div className="opinionCount">
-              <p>&nbsp;{props.userId}</p>
+              <p>&nbsp;{props.userName}</p>
             </div>
             <div className="opinionCount">
               <ThumbDownIcon />

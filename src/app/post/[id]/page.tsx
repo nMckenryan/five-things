@@ -12,6 +12,7 @@ export default function PostPage({
     throw new Error("Invalid post ID");
   }
 
+  //FULL PAGE VIEW OF POST
   return (
     <PageLayout key={postIdAsNumber} postId={postIdAsNumber}>
       <FullPagePostView postId={postIdAsNumber} />
