@@ -1,12 +1,4 @@
-import {
-  Card,
-  CardContent,
-  Typography,
-  CardActions,
-  Button,
-} from "@mui/material";
-import ThumbUpIcon from "@mui/icons-material/ThumbUp";
-import ThumbDownIcon from "@mui/icons-material/ThumbDown";
+import { Card, CardContent, Typography, CardActions } from "@mui/material";
 import "../../styles/bullet-card.css";
 import { deletePost } from "~/server/queries";
 
@@ -52,20 +44,12 @@ export default function BulletCardModal(props: Props) {
           </ul>
         </CardContent>
 
-        <CardActions className="opinionCountMain">
-          <div style={{ display: "flex", flexDirection: "row", gap: "1rem" }}>
-            <div className="opinionCount">
-              <ThumbUpIcon />
-              <p>&nbsp;{props.agreeCount}</p>
-            </div>
-            <div className="opinionCount">
-              <p>&nbsp;{props.userName}</p>
-            </div>
-            <div className="opinionCount">
-              <ThumbDownIcon />
-              <p>&nbsp; {props.disagreeCount}</p>
-            </div>
-          </div>
+        <CardActions className="cardFooter">
+          <p>{props.userName}</p>
+          <p>
+            {props.dateCreated.getDate()}/{props.dateCreated.getMonth()}/
+            {props.dateCreated.getFullYear()}
+          </p>
         </CardActions>
       </form>
     </Card>

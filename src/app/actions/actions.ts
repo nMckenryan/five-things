@@ -6,9 +6,9 @@ import { redirect } from "next/dist/client/components/redirect";
 import { db } from "~/server/db";
 import { posts } from "~/server/db/schema";
 
- 
+
 export async function createPost(subjectName: string, fiveThing1: string, fiveThing2: string, fiveThing3: string, fiveThing4: string, fiveThing5: string) {
-    const agreeCount = 0; 
+    const agreeCount = 0;
     const disagreeCount = 0;
 
     const user = auth();
@@ -25,9 +25,9 @@ export async function createPost(subjectName: string, fiveThing1: string, fiveTh
             fiveThing4,
             fiveThing5,
             userId: userId ?? "Unknown User",
-          });
-          
-    redirect("/");
+        });
+
+        redirect("/");
     } catch (error) {
         console.log("Could not insert post: ", error);
     }
@@ -46,7 +46,7 @@ export async function updatePost(postId: number, subjectName: string, fiveThing1
             fiveThing5,
             updatedAt: new Date(),
         }).where(eq(posts.id, postId));
-        
+
     } catch (error) {
         console.log("Could not update post: ", error);
     }

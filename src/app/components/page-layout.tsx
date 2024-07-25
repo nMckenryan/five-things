@@ -16,13 +16,14 @@ export default function PageLayout({
 }) {
   const user = auth();
   const loggedInUserId = user.userId ?? "Not Logged In";
+  let postUser = "";
 
   const postUserId = async () => {
     const result = await getPostUserId(postId);
-    return result ?? "Empty User Id";
+    postUser = result ?? "Empty User Id";
   };
 
-  const isUserAuthorisedToEdit = loggedInUserId === postUserId();
+  const isUserAuthorisedToEdit = loggedInUserId === postUser;
 
   return (
     <div
@@ -49,6 +50,11 @@ export default function PageLayout({
           className="window-taskbar"
           style={{ display: "flex", justifyContent: "flex-end" }}
         >
+          <p>
+            {loggedInUserId}
+            <br />
+            {postUserId()}
+          </p>
           <SignedIn>
             {isUserAuthorisedToEdit && (
               <>

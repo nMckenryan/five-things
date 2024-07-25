@@ -27,10 +27,14 @@ This was built with the T3 Stack project bootstrapped with create-t3-app with:
 - [x] Add authentication
 - [x] show other user's 5 things
 - [x] display usernames properly
-- [] rig up up/downvotes
+- [x] Fixed up footer
 - [x] patch up UI for crud functions
 - [x] toast confirmation on server actions
 - [] reload page on update
 - [] Get Delete Button Working properly
 - [x] clean up edit modal
+
+TO DO LATER:
+
+- [] rig up up/downvotes - complex, will need to refactor user history
 - [] set up unit tests for operations

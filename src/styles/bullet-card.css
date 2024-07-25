@@ -1,14 +1,9 @@
-.opinionCountMain {
+.cardFooter {
     display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+    flex-direction: row;
+    justify-content: space-around;
 }
 
-.opinionCount {
-    display: flex;
-    align-items: center;
-    flex-direction: row;
-}
 
 .goodBullets {
     list-style-type: "➕";

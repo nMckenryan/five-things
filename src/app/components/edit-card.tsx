@@ -158,7 +158,7 @@ export default function EditCard(props: Props) {
             {errors.subjectName && <span>This field is required</span>}
           </Stack>
         </CardContent>
-        <CardActions className="opinionCountMain">
+        <CardActions>
           <div>{errors.subjectName && <span>This field is required</span>}</div>
           <div>{errors.postThing1 && <span>This field is required</span>}</div>
           <div>{errors.postThing2 && <span>This field is required</span>}</div>
