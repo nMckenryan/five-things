@@ -2,7 +2,7 @@ import "~/styles/globals.css";
 import EditIcon from "@mui/icons-material/Edit";
 import CloseIcon from "@mui/icons-material/Close";
 import Button from "@mui/material/Button";
-import DeleteButton from "./delete-button";
+import DeletePostButton from "./delete-button";
 import { getPostUserId } from "~/server/queries";
 import { auth } from "@clerk/nextjs/server";
 import { SignedIn } from "@clerk/nextjs";
@@ -53,7 +53,7 @@ export default function PageLayout({
           <SignedIn>
             {isUserAuthorisedToEdit && (
               <>
-                <DeleteButton postIdToDelete={Number(postId)} />
+                <DeletePostButton postIdToDelete={postId} />
 
                 <Button className="editButton" href={`/post/${postId}/edit`}>
                   <EditIcon />

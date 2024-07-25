@@ -12,7 +12,11 @@ import DialogTitle from "@mui/material/DialogTitle";
 import { deletePost } from "../actions/actions";
 import { useRouter } from "next/navigation";
 
-export default function DeleteButton(postIdToDelete: number) {
+interface DeleteProps {
+  postIdToDelete: number;
+}
+
+export default function DeletePostButton(props: DeleteProps) {
   const [open, setOpen] = React.useState(false);
 
   const router = useRouter();
@@ -26,15 +30,12 @@ export default function DeleteButton(postIdToDelete: number) {
 
   return (
     <>
-      <Button className="closeButton" onClick={handleClickOpen}>
-        <DeleteIcon />
-      </Button>
-
       <Dialog
         open={open}
         onClose={handleClose}
         aria-labelledby="alert-dialog-title"
         aria-describedby="alert-dialog-description"
+        sx={{ zIndex: 20 }}
       >
         <DialogTitle id="alert-dialog-title">{"Delete this Post?"}</DialogTitle>
         <DialogContent>
@@ -46,14 +47,17 @@ export default function DeleteButton(postIdToDelete: number) {
           <Button onClick={handleClose}>No</Button>
           <Button
             onClick={async () => {
-              await deletePost(postIdToDelete);
-              router.back();
+              await deletePost(props.postIdToDelete);
+              router.push("/");
             }}
           >
             Yes
           </Button>
         </DialogActions>
       </Dialog>
+      <Button className="closeButton" onClick={handleClickOpen}>
+        <DeleteIcon />
+      </Button>
     </>
   );
 }

@@ -33,6 +33,7 @@ export function PostViewModal({
         padding: "0",
         border: "none",
         background: "#EDFA8B",
+        zIndex: 10,
       }}
     >
       <WindowLayout postId={postId}>{children}</WindowLayout>

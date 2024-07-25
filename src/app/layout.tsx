@@ -14,7 +14,7 @@ import { Typography } from "@mui/material";
 
 import { GeistSans } from "geist/font/sans";
 import InsertCard from "./components/insert-card";
-import { createPost } from "./actions/actions";
+
 import Link from "next/link";
 
 export const metadata = {
@@ -74,7 +74,7 @@ export default function RootLayout({
                     </SignInButton>
                   </SignedOut>
                   <SignedIn>
-                    <InsertCard createPost={createPost} />
+                    <InsertCard />
                     <UserButton />
                   </SignedIn>
                 </div>

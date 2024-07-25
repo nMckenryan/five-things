@@ -11,7 +11,7 @@ import { useForm, type SubmitHandler, Controller } from "react-hook-form";
 import { updatePost } from "../actions/actions";
 import CloseIcon from "@mui/icons-material/Close";
 import CancelIcon from "@mui/icons-material/Cancel";
-import DeleteButton from "./delete-button";
+import DeletePostButton from "./delete-button";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 
@@ -85,7 +85,7 @@ export default function EditCard(props: Props) {
           Edit Five Things!
         </Typography>
         <div>
-          <DeleteButton postIdToDelete={props.postId} />
+          <DeletePostButton postIdToDelete={props.postId} />
           <Link href="/">
             <Button style={{ border: "none", background: "none" }}>
               <CloseIcon style={{ cursor: "pointer" }} />
