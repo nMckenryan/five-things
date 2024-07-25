@@ -27,9 +27,17 @@
 }
 
 .fiveCardExpanded {
-    min-width: 550px;
-    max-width: 1000px;
+    min-width: 350px;
+    max-width: 500px;
     padding: 8px;
     font-size: larger;
     line-height: 2rem;
 }
+
+.modalHeader {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 5px;
+  }
+

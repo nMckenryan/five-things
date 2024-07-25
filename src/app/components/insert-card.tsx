@@ -43,7 +43,18 @@ interface IFormInputs {
   fifthThing: string;
 }
 
-export default function InsertCard(props: Props) {
+const style = {
+  position: "absolute",
+  top: "50%",
+  left: "50%",
+  transform: "translate(-50%, -50%)",
+  background: "#EDFA8B",
+  boxShadow: 24,
+  p: 2,
+  width: "95%",
+};
+
+export default function InsertCard() {
   const [modalOpen, setModalOpen] = React.useState(false);
   const handleOpen = () => setModalOpen(true);
   const handleClose = () => setModalOpen(false);
@@ -100,22 +111,13 @@ export default function InsertCard(props: Props) {
           />
           <Card sx={style}>
             <form onSubmit={handleSubmit(onSubmit)}>
-              <CardContent>
-                <Stack
-                  sx={{
-                    width: "60ch",
-                  }}
-                  spacing={1}
-                >
-                  <Typography
-                    id="modal-modal-title"
-                    variant="h6"
-                    component="h2"
-                    sx={{ textAlign: "center" }}
-                  >
+              <CardContent sx={{ p: 0 }}>
+                <div className="modalHeader">
+                  <Typography variant="h6" sx={{ textAlign: "center" }}>
                     Add New Five Things!
                   </Typography>
-
+                </div>
+                <Stack spacing={1}>
                   <Controller
                     name="subjectName"
                     control={control}
@@ -220,7 +222,7 @@ export default function InsertCard(props: Props) {
                 </Stack>
               </CardContent>
               <CardActions
-                sx={{ display: "flex", justifyContent: "space-between" }}
+                sx={{ display: "flex", justifyContent: "space-between", px: 0 }}
               >
                 <Button
                   variant="outlined"
