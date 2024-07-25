@@ -21,7 +21,12 @@ export default function BulletCard(props: Props) {
       <CardContent
         style={{ marginTop: "5px", paddingTop: "2px", paddingBottom: "0px" }}
       >
-        <Typography variant="h5" component="div" className="subjectName">
+        <Typography
+          variant="h6"
+          component="div"
+          className="subjectName"
+          maxWidth={"100%"}
+        >
           {props.subjectName}
         </Typography>
         <ul className="goodBullets">

@@ -50,11 +50,6 @@ export default function PageLayout({
           className="window-taskbar"
           style={{ display: "flex", justifyContent: "flex-end" }}
         >
-          <p>
-            {loggedInUserId}
-            <br />
-            {postUserId()}
-          </p>
           <SignedIn>
             {isUserAuthorisedToEdit && (
               <>
@@ -67,7 +62,7 @@ export default function PageLayout({
             )}
           </SignedIn>
 
-          <Button>
+          <Button style={{ border: "none", background: "none" }} href="/">
             <CloseIcon style={{ cursor: "pointer" }} />
           </Button>
         </div>

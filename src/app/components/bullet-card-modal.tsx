@@ -32,7 +32,7 @@ export default function BulletCardModal(props: Props) {
         }}
       >
         <CardContent style={{ paddingTop: "0px", paddingBottom: "0px" }}>
-          <Typography variant="h5" component="div" className="subjectName">
+          <Typography variant="h6" component="div" className="subjectName">
             {props.subjectName}
           </Typography>
           <ul className="goodBullets">

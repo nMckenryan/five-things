@@ -10,6 +10,7 @@ import Typography from "@mui/material/Typography";
 import { useForm, type SubmitHandler, Controller } from "react-hook-form";
 import { updatePost } from "../actions/actions";
 import CloseIcon from "@mui/icons-material/Close";
+import CancelIcon from "@mui/icons-material/Cancel";
 import DeleteButton from "./delete-button";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
@@ -157,14 +158,39 @@ export default function EditCard(props: Props) {
 
             {errors.subjectName && <span>This field is required</span>}
           </Stack>
+          {/* <div>
+            <div>
+              {errors.subjectName && <span>This field is required</span>}
+            </div>
+            <div>
+              {errors.postThing1 && <span>This field is required</span>}
+            </div>
+            <div>
+              {errors.postThing2 && <span>This field is required</span>}
+            </div>
+            <div>
+              {errors.postThing3 && <span>This field is required</span>}
+            </div>
+            <div>
+              {errors.postThing4 && <span>This field is required</span>}
+            </div>
+            <div>
+              {errors.postThing5 && <span>This field is required</span>}
+            </div>
+          </div> */}
         </CardContent>
-        <CardActions>
-          <div>{errors.subjectName && <span>This field is required</span>}</div>
-          <div>{errors.postThing1 && <span>This field is required</span>}</div>
-          <div>{errors.postThing2 && <span>This field is required</span>}</div>
-          <div>{errors.postThing3 && <span>This field is required</span>}</div>
-          <div>{errors.postThing4 && <span>This field is required</span>}</div>
-          <div>{errors.postThing5 && <span>This field is required</span>}</div>
+        <CardActions
+          sx={{
+            display: "flex",
+            justifyContent: "space-between",
+            flexDirection: "row",
+            mx: 1,
+          }}
+        >
+          <Button variant="outlined" endIcon={<CancelIcon />} href="/">
+            Cancel
+          </Button>
+
           <Button variant="outlined" endIcon={<AddCircleIcon />} type="submit">
             Edit
           </Button>

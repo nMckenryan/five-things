@@ -29,7 +29,7 @@ export default function WindowLayout({
           <EditIcon />
         </Button>
 
-        <Button style={{ border: "none", background: "none" }}>
+        <Button style={{ border: "none", background: "none" }} href="/">
           <CloseIcon style={{ cursor: "pointer" }} />
         </Button>
       </div>
