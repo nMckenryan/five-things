@@ -23,6 +23,9 @@ This was built with the T3 Stack project bootstrapped with create-t3-app with:
       -- [x] Add 5 things
       -- [x] Edit 5 things
       -- [x] Delete 5 things
+      -- [x] Add 5 things
+      -- [x] Edit 5 things
+      -- [x] Delete 5 things
 - [x] Attach DB to UI
 - [x] Add authentication
 - [x] show other user's 5 things

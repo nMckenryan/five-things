@@ -2,37 +2,17 @@
 
 import { Card, CardContent, Typography, CardActions } from "@mui/material";
 import AddCircleIcon from "@mui/icons-material/AddCircle";
-import DeleteIcon from "@mui/icons-material/Delete";
+import CancelIcon from "@mui/icons-material/Cancel";
 import React from "react";
 import Modal from "@mui/material/Modal";
 import TextField from "@mui/material/TextField";
 import Stack from "@mui/material/Stack";
 import Button from "@mui/material/Button";
-import "../../styles/insert-card.css";
-import { useForm, SubmitHandler, Controller } from "react-hook-form";
+
+import { useForm, type SubmitHandler, Controller } from "react-hook-form";
 import { createPost } from "../actions/actions";
-import Snackbar, { SnackbarOrigin } from "@mui/material/Snackbar";
-import { string } from "zod";
-
-const style = {
-  position: "absolute",
-  top: "50%",
-  left: "50%",
-  transform: "translate(-50%, -50%)",
-  bgcolor: "background.paper",
-  boxShadow: 24,
-  p: 2,
-};
-
-interface Props {
-  subjectName: string;
-  firstThing: string;
-  secondThing: string;
-  thirdThing: string;
-  fourthThing: string;
-  fifthThing: string;
-  postId: number;
-}
+import Snackbar from "@mui/material/Snackbar";
+import CloseIcon from "@mui/icons-material/Close";
 
 interface IFormInputs {
   subjectName: string;
@@ -87,6 +67,7 @@ export default function InsertCard() {
       setToastMessage("Error: " + String(error));
     }
     handleToastOpen();
+    handleClose();
   };
 
   return (
@@ -99,7 +80,7 @@ export default function InsertCard() {
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description"
       >
-        <div>
+        <>
           <Snackbar
             anchorOrigin={{
               vertical: "top",
@@ -122,7 +103,6 @@ export default function InsertCard() {
                     name="subjectName"
                     control={control}
                     rules={{ required: true }}
-                    defaultValue={props.subjectName}
                     render={({ field }) => (
                       <TextField
                         label="Subject"
@@ -139,7 +119,6 @@ export default function InsertCard() {
                     name="firstThing"
                     control={control}
                     rules={{ required: true }}
-                    defaultValue={props.firstThing}
                     render={({ field }) => (
                       <TextField
                         label="First Thing"
@@ -156,7 +135,6 @@ export default function InsertCard() {
                     name="secondThing"
                     control={control}
                     rules={{ required: true }}
-                    defaultValue={props.secondThing}
                     render={({ field }) => (
                       <TextField
                         label="Second Thing"
@@ -173,7 +151,6 @@ export default function InsertCard() {
                     name="thirdThing"
                     control={control}
                     rules={{ required: true }}
-                    defaultValue={props.thirdThing}
                     render={({ field }) => (
                       <TextField
                         label="Third Thing"
@@ -190,7 +167,6 @@ export default function InsertCard() {
                     name="fourthThing"
                     control={control}
                     rules={{ required: true }}
-                    defaultValue={props.fourthThing}
                     render={({ field }) => (
                       <TextField
                         label="Fourth Thing"
@@ -207,7 +183,6 @@ export default function InsertCard() {
                     name="fifthThing"
                     control={control}
                     rules={{ required: true }}
-                    defaultValue={props.fifthThing}
                     render={({ field }) => (
                       <TextField
                         label="Fifth Thing"
@@ -226,10 +201,10 @@ export default function InsertCard() {
               >
                 <Button
                   variant="outlined"
-                  startIcon={<DeleteIcon />}
-                  onClick={handleToastOpen}
+                  startIcon={<CancelIcon />}
+                  onClick={handleClose}
                 >
-                  Delete
+                  Cancel
                 </Button>
                 <Button
                   variant="outlined"
@@ -241,7 +216,7 @@ export default function InsertCard() {
               </CardActions>
             </form>
           </Card>
-        </div>
+        </>
       </Modal>
     </>
   );

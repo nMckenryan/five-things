@@ -1,14 +1,12 @@
 import { Card, CardContent, Typography, CardActions } from "@mui/material";
-import ThumbUpIcon from "@mui/icons-material/ThumbUp";
-import ThumbDownIcon from "@mui/icons-material/ThumbDown";
 import "../../styles/bullet-card.css";
 
 interface Props {
   subjectName: string;
   fiveGoodThings: string[];
-  agreeCount: number;
-  disagreeCount: number;
   userId: string;
+  userName: string;
+  dateCreated: Date;
 }
 
 export default function BulletCard(props: Props) {
@@ -23,7 +21,12 @@ export default function BulletCard(props: Props) {
       <CardContent
         style={{ marginTop: "5px", paddingTop: "2px", paddingBottom: "0px" }}
       >
-        <Typography variant="h5" component="div" className="subjectName">
+        <Typography
+          variant="h6"
+          component="div"
+          className="subjectName"
+          maxWidth={"100%"}
+        >
           {props.subjectName}
         </Typography>
         <ul className="goodBullets">
@@ -41,14 +44,12 @@ export default function BulletCard(props: Props) {
           justifyContent: "space-between",
         }}
       >
-        <div className="opinionCount">
-          <ThumbUpIcon />
-          <p>&nbsp;{props.agreeCount}</p>
-        </div>
-        <div className="opinionCount">
-          <ThumbDownIcon />
-          <p>&nbsp; {props.disagreeCount}</p>
-        </div>
+        <p>{props.userName}</p>
+        <p>&nbsp;</p>
+        <p>
+          {props.dateCreated.getDate()}/{props.dateCreated.getMonth()}/
+          {props.dateCreated.getFullYear()}
+        </p>
       </CardActions>
     </Card>
   );
