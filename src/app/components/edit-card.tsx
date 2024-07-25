@@ -74,12 +74,24 @@ export default function EditCard(props: Props) {
         className="window-taskbar"
         style={{ display: "flex", justifyContent: "flex-end" }}
       >
-        <DeleteButton postIdToDelete={props.postId} />
-        <Link href="/">
-          <Button style={{ border: "none", background: "none" }}>
-            <CloseIcon style={{ cursor: "pointer" }} />
-          </Button>
-        </Link>
+        <div></div>
+        <div></div>
+        <Typography
+          id="modal-modal-title"
+          variant="h6"
+          component="h2"
+          sx={{ textAlign: "center" }}
+        >
+          Edit Five Things!
+        </Typography>
+        <div>
+          <DeleteButton postIdToDelete={props.postId} />
+          <Link href="/">
+            <Button style={{ border: "none", background: "none" }}>
+              <CloseIcon style={{ cursor: "pointer" }} />
+            </Button>
+          </Link>
+        </div>
       </div>
 
       <form onSubmit={handleSubmit(onSubmit)}>
@@ -90,14 +102,6 @@ export default function EditCard(props: Props) {
             }}
             spacing={1}
           >
-            <Typography
-              id="modal-modal-title"
-              variant="h6"
-              component="h2"
-              sx={{ textAlign: "center" }}
-            >
-              Edit Five Things!
-            </Typography>
             <Controller
               name="subjectName"
               control={control}

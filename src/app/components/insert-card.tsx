@@ -29,7 +29,7 @@ const style = {
   top: "50%",
   left: "50%",
   transform: "translate(-50%, -50%)",
-  bgcolor: "background.paper",
+  background: "#EDFA8B",
   boxShadow: 24,
   p: 2,
 };
@@ -103,9 +103,9 @@ export default function InsertCard() {
                   >
                     Add New Five Things!
                   </Typography>
-                  <Link href="/">
+                  <Button onClick={handleClose}>
                     <CloseIcon style={{ cursor: "pointer" }} />
-                  </Link>
+                  </Button>
                 </div>
                 <Stack
                   sx={{

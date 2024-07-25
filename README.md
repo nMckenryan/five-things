@@ -33,6 +33,7 @@ This was built with the T3 Stack project bootstrapped with create-t3-app with:
 - [] reload page on update
 - [] Get Delete Button Working properly
 - [x] clean up edit modal
+- [ ] fix mobile view
 
 TO DO LATER:
 

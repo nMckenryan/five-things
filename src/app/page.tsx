@@ -27,6 +27,7 @@ export default async function Home() {
             flexDirection: "row",
             gap: "1rem",
             flexWrap: "wrap",
+            justifyContent: "center",
           }}
         >
           {posts.map(async (post) => {
