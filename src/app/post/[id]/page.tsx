@@ -1,20 +1,21 @@
 import FullPagePostView from "~/app/components/full-post-page";
+import PageLayout from "~/app/components/page-layout";
 
 export default function PostPage({
   params: { id: postId },
 }: {
   params: { id: string };
 }) {
-
   const postIdAsNumber = Number(postId);
 
-  if(Number.isNaN(postIdAsNumber)) {
+  if (Number.isNaN(postIdAsNumber)) {
     throw new Error("Invalid post ID");
   }
 
+  //FULL PAGE VIEW OF POST
   return (
-    <div style={{background: "linear-gradient(to bottom, #256670, #1E425E);", height: "93vh", display: "flex", alignContent: "center", justifyContent: "center", alignItems: "flex-start", padding: "2rem"}}>
+    <PageLayout key={postIdAsNumber} postId={postIdAsNumber}>
       <FullPagePostView postId={postIdAsNumber} />
-      </div>
-  )
+    </PageLayout>
+  );
 }

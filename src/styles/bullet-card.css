@@ -1,14 +1,9 @@
-.opinionCountMain {
+.cardFooter {
     display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+    flex-direction: row;
+    justify-content: space-around;
 }
 
-.opinionCount {
-    display: flex;
-    align-items: center;
-    flex-direction: row;
-}
 
 .goodBullets {
     list-style-type: "➕";
@@ -20,8 +15,8 @@
 }
 
 .fiveCard {
-    min-width: 275px;
-    max-width: 500px;
+    min-width: 255px;
+    max-width: 400px;
     padding: 4px;
     line-height: 1.5rem;
 }
@@ -33,3 +28,10 @@
     font-size: larger;
     line-height: 2rem;
 }
+
+.modalHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+

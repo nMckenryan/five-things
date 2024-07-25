@@ -1,21 +1,20 @@
 import FullPagePostView from "~/app/components/full-post-page";
-import { Modal } from "./modal";
+import { PostViewModal } from "./post-view-modal";
 
 export default function PostModal({
   params: { id: postId },
 }: {
   params: { id: string };
 }) {
-
   const postIdAsNumber = Number(postId);
 
-  if(Number.isNaN(postIdAsNumber)) {
+  if (Number.isNaN(postIdAsNumber)) {
     throw new Error("Invalid post ID");
   }
 
   return (
-    <Modal>
+    <PostViewModal postId={postIdAsNumber}>
       <FullPagePostView postId={postIdAsNumber} />
-    </Modal>
-  )
+    </PostViewModal>
+  );
 }

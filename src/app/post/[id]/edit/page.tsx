@@ -5,14 +5,11 @@ export default function PostModal({
 }: {
   params: { id: string };
 }) {
-
   const postIdAsNumber = Number(postId);
 
-  if(Number.isNaN(postIdAsNumber)) {
+  if (Number.isNaN(postIdAsNumber)) {
     throw new Error("Invalid post ID");
   }
 
-  return (
-      <EditPostPage postId={postIdAsNumber} />
-  )
+  return <EditPostPage postId={postIdAsNumber} />;
 }

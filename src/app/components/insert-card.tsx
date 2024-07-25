@@ -1,101 +1,236 @@
-"use client"; 
+"use client";
 
 import { Card, CardContent, Typography, CardActions } from "@mui/material";
-import AddCircleIcon from '@mui/icons-material/AddCircle';
-import DeleteIcon from '@mui/icons-material/Delete';
+import AddCircleIcon from "@mui/icons-material/AddCircle";
+import CancelIcon from "@mui/icons-material/Cancel";
 import React from "react";
-import Modal from '@mui/material/Modal';
+import Modal from "@mui/material/Modal";
 import TextField from "@mui/material/TextField";
-import Stack from '@mui/material/Stack';
+import Stack from "@mui/material/Stack";
 import Button from "@mui/material/Button";
-import "../../styles/insert-card.css";
-import { useUser } from "@clerk/nextjs";
-import { auth } from "@clerk/nextjs/server";
-import { revalidatePath } from "next/cache";
-import { redirect } from "next/dist/client/components/redirect";
+
+import { useForm, type SubmitHandler, Controller } from "react-hook-form";
+import { createPost } from "../actions/actions";
+import Snackbar from "@mui/material/Snackbar";
+import CloseIcon from "@mui/icons-material/Close";
+
+interface IFormInputs {
+  subjectName: string;
+  firstThing: string;
+  secondThing: string;
+  thirdThing: string;
+  fourthThing: string;
+  fifthThing: string;
+}
 
 const style = {
-  position: 'absolute',
-  top: '50%',
-  left: '50%',
-  transform: 'translate(-50%, -50%)',
-  bgcolor: 'background.paper',
+  position: "absolute",
+  top: "50%",
+  left: "50%",
+  transform: "translate(-50%, -50%)",
+  background: "#EDFA8B",
   boxShadow: 24,
-  p: 2
+  p: 2,
 };
 
+export default function InsertCard() {
+  const [modalOpen, setModalOpen] = React.useState(false);
+  const handleOpen = () => setModalOpen(true);
+  const handleClose = () => setModalOpen(false);
 
-export default function InsertCard({ createPost }: { createPost: (subjectName: string, fiveThing1: string, fiveThing2: string, fiveThing3: string, fiveThing4: string, fiveThing5: string) => Promise<void> }) {
-  const [open, setOpen] = React.useState(false);
-  const handleOpen = () => setOpen(true);
-  const handleClose = () => setOpen(false);
+  const [toastState, setToastState] = React.useState(false);
+  const [toastMessage, setToastMessage] = React.useState("");
 
-  const [formData, setFormData] = React.useState({
-    subjectName: "",
-    n1: "",
-    n2: "",
-    n3: "",
-    n4: "",
-    n5: "",
-  });
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const { name, value } = e.target;
-    setFormData({
-      ...formData,
-      [name]: value
-    });
+  const handleToastOpen = () => {
+    setToastState(true);
   };
 
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    await createPost(formData.subjectName, formData.n1, formData.n2, formData.n3, formData.n4, formData.n5);
+  const handleToastClose = () => {
+    setToastState(false);
+  };
+
+  const { handleSubmit, control } = useForm<IFormInputs>();
+  const onSubmit: SubmitHandler<IFormInputs> = async (data) => {
+    console.log("Added", data);
+    try {
+      await createPost(
+        data.subjectName,
+        data.firstThing,
+        data.secondThing,
+        data.thirdThing,
+        data.fourthThing,
+        data.fifthThing
+      );
+      setToastMessage("Post Created!");
+    } catch (error) {
+      setToastMessage("Error: " + String(error));
+    }
+    handleToastOpen();
     handleClose();
-
   };
 
-    return (
-      <>
-        <AddCircleIcon sx={{ color: "white" }} onClick={handleOpen}/>
+  return (
+    <>
+      <AddCircleIcon sx={{ color: "white" }} onClick={handleOpen} />
 
-        <Modal
-          open={open}
-          onClose={handleClose}
-          aria-labelledby="modal-modal-title"
-          aria-describedby="modal-modal-description"
-        >
+      <Modal
+        open={modalOpen}
+        onClose={handleClose}
+        aria-labelledby="modal-modal-title"
+        aria-describedby="modal-modal-description"
+      >
+        <>
+          <Snackbar
+            anchorOrigin={{
+              vertical: "top",
+              horizontal: "right",
+            }}
+            open={toastState}
+            onClose={handleToastClose}
+            message={toastMessage}
+          />
           <Card sx={style}>
-            <form onSubmit={handleSubmit}>
-              <CardContent>    
-                  <Stack
-                    sx={{
-                      width: '60ch'
-                    }}
-                    spacing={1}
-                  >            
-                    <Typography id="modal-modal-title" variant="h6" component="h2" sx={{ textAlign: "center"}}>
-                      Add New Five Things!
-                    </Typography> 
-                    <TextField className="thingInput" label="Subject" name="subjectName" variant="outlined" color="success" onChange={handleChange} required />
-                    <TextField className="thingInput" label="Nice Thing 1" name="n1" variant="outlined" color="success" onChange={handleChange} required />
-                    <TextField className="thingInput" label="Nice Thing 2" name="n2" variant="outlined" color="success" onChange={handleChange} required/>
-                    <TextField className="thingInput" label="Nice Thing 3" name="n3" variant="outlined" color="success"  onChange={handleChange} required/>
-                    <TextField className="thingInput" label="Nice Thing 4" name="n4" variant="outlined" color="success" onChange={handleChange} required />
-                    <TextField className="thingInput" label="Nice Thing 5" name="n5" variant="outlined" color="success" onChange={handleChange} required />
-                  </Stack>
-                </CardContent>
-              <CardActions sx={{display: "flex", justifyContent: "space-between"}}>
-                <Button variant="outlined" startIcon={<DeleteIcon />}>
-                  Delete
+            <form onSubmit={handleSubmit(onSubmit)}>
+              <CardContent>
+                <div className="modalHeader">
+                  <div></div>
+                  <Typography
+                    id="modal-modal-title"
+                    variant="h6"
+                    component="h2"
+                    sx={{ textAlign: "center" }}
+                  >
+                    Add New Five Things!
+                  </Typography>
+                  <Button onClick={handleClose}>
+                    <CloseIcon style={{ cursor: "pointer" }} />
+                  </Button>
+                </div>
+                <Stack
+                  sx={{
+                    width: "60ch",
+                  }}
+                  spacing={1}
+                >
+                  <Controller
+                    name="subjectName"
+                    control={control}
+                    rules={{ required: true }}
+                    render={({ field }) => (
+                      <TextField
+                        label="Subject"
+                        className="thingInput"
+                        variant="outlined"
+                        color="success"
+                        required
+                        {...field}
+                      />
+                    )}
+                  />
+
+                  <Controller
+                    name="firstThing"
+                    control={control}
+                    rules={{ required: true }}
+                    render={({ field }) => (
+                      <TextField
+                        label="First Thing"
+                        className="thingInput"
+                        variant="outlined"
+                        color="success"
+                        required
+                        {...field}
+                      />
+                    )}
+                  />
+
+                  <Controller
+                    name="secondThing"
+                    control={control}
+                    rules={{ required: true }}
+                    render={({ field }) => (
+                      <TextField
+                        label="Second Thing"
+                        className="thingInput"
+                        variant="outlined"
+                        color="success"
+                        required
+                        {...field}
+                      />
+                    )}
+                  />
+
+                  <Controller
+                    name="thirdThing"
+                    control={control}
+                    rules={{ required: true }}
+                    render={({ field }) => (
+                      <TextField
+                        label="Third Thing"
+                        className="thingInput"
+                        variant="outlined"
+                        color="success"
+                        required
+                        {...field}
+                      />
+                    )}
+                  />
+
+                  <Controller
+                    name="fourthThing"
+                    control={control}
+                    rules={{ required: true }}
+                    render={({ field }) => (
+                      <TextField
+                        label="Fourth Thing"
+                        className="thingInput"
+                        variant="outlined"
+                        color="success"
+                        required
+                        {...field}
+                      />
+                    )}
+                  />
+
+                  <Controller
+                    name="fifthThing"
+                    control={control}
+                    rules={{ required: true }}
+                    render={({ field }) => (
+                      <TextField
+                        label="Fifth Thing"
+                        className="thingInput"
+                        variant="outlined"
+                        color="success"
+                        required
+                        {...field}
+                      />
+                    )}
+                  />
+                </Stack>
+              </CardContent>
+              <CardActions
+                sx={{ display: "flex", justifyContent: "space-between" }}
+              >
+                <Button
+                  variant="outlined"
+                  startIcon={<CancelIcon />}
+                  onClick={handleClose}
+                >
+                  Cancel
                 </Button>
-                <Button variant="outlined" endIcon={<AddCircleIcon />} type="submit">
+                <Button
+                  variant="outlined"
+                  endIcon={<AddCircleIcon />}
+                  type="submit"
+                >
                   Send
                 </Button>
               </CardActions>
-          </form>
+            </form>
           </Card>
-      </Modal>
-
         </>
-      );
+      </Modal>
+    </>
+  );
 }

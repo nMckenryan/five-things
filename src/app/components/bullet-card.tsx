@@ -1,32 +1,56 @@
 import { Card, CardContent, Typography, CardActions } from "@mui/material";
-import ThumbUpIcon from '@mui/icons-material/ThumbUp';
-import ThumbDownIcon from '@mui/icons-material/ThumbDown';
-import '../../styles/bullet-card.css';
+import "../../styles/bullet-card.css";
 
 interface Props {
   subjectName: string;
   fiveGoodThings: string[];
-  agreeCount: number;
-  disagreeCount: number;
   userId: string;
+  userName: string;
+  dateCreated: Date;
 }
 
 export default function BulletCard(props: Props) {
-    return (
-        <Card className="fiveCard" sx={{ background: "#EDFA8B", boxShadow: "5px 5px 5px 0px rgba(0,0,0,0.5)"}}>
-          <CardContent style={{ marginTop: "5px",paddingTop: "2px", paddingBottom: "0px"}}> 
-            <Typography variant="h5" component="div" className="subjectName">
-              {props.subjectName}
-            </Typography>            
-              <ul className="goodBullets">
-                {props.fiveGoodThings.map(thing => <li key={thing.indexOf(thing)}>{thing.toString()}</li>)}
-              </ul>
-
-          </CardContent>
-          <CardActions className="opinionCountMain" style={{paddingTop: "1px", paddingBottom: "0px"}}  >
-            <div className="opinionCount"><ThumbUpIcon/><p>&nbsp;{props.agreeCount}</p></div>
-            <div className="opinionCount"><ThumbDownIcon/><p>&nbsp; {props.disagreeCount}</p></div>
-          </CardActions>
-        </Card>
-      );
+  return (
+    <Card
+      className="fiveCard"
+      sx={{
+        background: "#EDFA8B",
+        boxShadow: "5px 5px 5px 0px rgba(0,0,0,0.5)",
+      }}
+    >
+      <CardContent
+        style={{ marginTop: "5px", paddingTop: "2px", paddingBottom: "0px" }}
+      >
+        <Typography
+          variant="h6"
+          component="div"
+          className="subjectName"
+          maxWidth={"100%"}
+        >
+          {props.subjectName}
+        </Typography>
+        <ul className="goodBullets">
+          {props.fiveGoodThings.map((thing) => (
+            <li key={thing.indexOf(thing)}>{thing.toString()}</li>
+          ))}
+        </ul>
+      </CardContent>
+      <CardActions
+        style={{
+          paddingTop: "1px",
+          paddingBottom: "0px",
+          display: "flex",
+          flexDirection: "row",
+          justifyContent: "space-between",
+        }}
+      >
+        <p>{props.userName}</p>
+        <p>&nbsp;</p>
+        <p>
+          {props.dateCreated.getDate()}/{props.dateCreated.getMonth()}/
+          {props.dateCreated.getFullYear()}
+        </p>
+      </CardActions>
+    </Card>
+  );
 }
