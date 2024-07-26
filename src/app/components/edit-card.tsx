@@ -24,6 +24,7 @@ const style = {
   boxShadow: 24,
   p: 1,
   width: "95%",
+  maxWidth: "600px",
 };
 
 interface Props {
@@ -73,7 +74,7 @@ export default function EditCard(props: Props) {
     <Card sx={style}>
       <div
         className="window-taskbar"
-        style={{ display: "flex", justifyContent: "space-evenly" }}
+        style={{ display: "flex", justifyContent: "space-between" }}
       >
         <DeletePostButton postIdToDelete={props.postId} />
         <Typography variant="h6" sx={{ textAlign: "center" }}>

@@ -32,6 +32,7 @@ const style = {
   boxShadow: 24,
   p: 2,
   width: "95%",
+  maxWidth: "600px",
 };
 
 export default function InsertCard() {
