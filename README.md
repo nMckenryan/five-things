@@ -33,13 +33,13 @@ This was built with the T3 Stack project bootstrapped with create-t3-app with:
 - [x] Fixed up footer
 - [x] patch up UI for crud functions
 - [x] toast confirmation on server actions
-- [] reload page on update
 - [x] Get Delete Button Working properly
-- [ ] Get delete confirmation working w/ dialog
 - [x] clean up edit modal
-- [ ] fix mobile view
-
-TO DO LATER:
+- [x] fix mobile view
+- [] reload page on update
+- [] Get delete confirmation working w/ dialog
+- [] Fix Confirmation dialog
+  TO DO LATER:
 
 - [] rig up up/downvotes - complex, will need to refactor user history
 - [] set up unit tests for operations
