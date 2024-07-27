@@ -5,9 +5,13 @@
 This was built with the T3 Stack project bootstrapped with create-t3-app with:
 
 - React (Next.js)
+- MUI Component Library
 - Drizzle
 - Vercel
-- Postgres
+- Postgres (via Vercel)
+- Clerk Authentication
+- Sentry Error Detection
+- PostHog Analytics
 
 ### TODO:
 
@@ -29,17 +33,31 @@ This was built with the T3 Stack project bootstrapped with create-t3-app with:
 - [x] Attach DB to UI
 - [x] Add authentication
 - [x] show other user's 5 things
-- [x] display usernames properly
-- [x] Fixed up footer
-- [x] patch up UI for crud functions
 - [x] toast confirmation on server actions
 - [x] Get Delete Button Working properly
+- [] Implement Analytics
+
+BUG FIXES/CLEANUP
+
+- [x] Fixed up footer
+- [x] patch up UI for crud functions
+- [x] display usernames properly
 - [x] clean up edit modal
 - [x] fix mobile view
-- [] reload page on update
+- [x] Fix background height
+- [] reload page on update/create
+- [x] fix background dimming
 - [] Get delete confirmation working w/ dialog
-- [] Fix Confirmation dialog
+- [] Fix Confirmation dialog when update/create
+- [x] Clean up site for screenshots
+- [] Clean up Readme
+
   TO DO LATER:
 
 - [] rig up up/downvotes - complex, will need to refactor user history
 - [] set up unit tests for operations
+- [] Uniform CRUD operation methods
+
+WHAT WENT WELL:
+
+WHAT TO DO BETTER NEXT TIME:

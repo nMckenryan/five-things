@@ -36,11 +36,21 @@ export default function BulletCardModal(props: Props) {
             {props.subjectName}
           </Typography>
           <ul className="goodBullets">
-            <li key={props.postThing1}>{props.postThing1}</li>
-            <li key={props.postThing2}>{props.postThing2}</li>
-            <li key={props.postThing3}>{props.postThing3}</li>
-            <li key={props.postThing4}>{props.postThing4}</li>
-            <li key={props.postThing5}>{props.postThing5}</li>
+            <li key={props.subjectName + props.postThing1}>
+              {props.postThing1}
+            </li>
+            <li key={props.subjectName + props.postThing2}>
+              {props.postThing2}
+            </li>
+            <li key={props.subjectName + props.postThing3}>
+              {props.postThing3}
+            </li>
+            <li key={props.subjectName + props.postThing4}>
+              {props.postThing4}
+            </li>
+            <li key={props.subjectName + props.postThing5}>
+              {props.postThing5}
+            </li>
           </ul>
         </CardContent>
 

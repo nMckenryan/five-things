@@ -52,17 +52,18 @@ export default function InsertCard() {
   };
 
   const { handleSubmit, control } = useForm<IFormInputs>();
+
   const onSubmit: SubmitHandler<IFormInputs> = async (data) => {
     console.log("Added", data);
     try {
-      await createPost(
-        data.subjectName,
-        data.firstThing,
-        data.secondThing,
-        data.thirdThing,
-        data.fourthThing,
-        data.fifthThing
-      );
+      // await createPost(
+      //   data.subjectName,
+      //   data.firstThing,
+      //   data.secondThing,
+      //   data.thirdThing,
+      //   data.fourthThing,
+      //   data.fifthThing
+      // );
       setToastMessage("Post Created!");
     } catch (error) {
       setToastMessage("Error: " + String(error));

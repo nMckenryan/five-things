@@ -30,12 +30,12 @@ export default function PageLayout({
       className="page-background"
       style={{
         background: "linear-gradient(to bottom, #256670, #1E425E)",
-        height: "93vh",
+        height: "94.9vh",
         display: "flex",
         alignContent: "center",
         justifyContent: "center",
         alignItems: "flex-start",
-        padding: "2rem",
+        paddingTop: "2rem",
       }}
     >
       <div
