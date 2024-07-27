@@ -30,12 +30,11 @@ export default function DeletePostButton(props: DeleteProps) {
 
   return (
     <>
-      <Dialog
+      <dialog
         open={open}
         onClose={handleClose}
         aria-labelledby="alert-dialog-title"
         aria-describedby="alert-dialog-description"
-        sx={{ zIndex: 20 }}
       >
         <DialogTitle id="alert-dialog-title">{"Delete this Post?"}</DialogTitle>
         <DialogContent>
@@ -54,7 +53,7 @@ export default function DeletePostButton(props: DeleteProps) {
             Yes
           </Button>
         </DialogActions>
-      </Dialog>
+      </dialog>
       <Button className="closeButton" onClick={handleClickOpen}>
         <DeleteIcon />
       </Button>

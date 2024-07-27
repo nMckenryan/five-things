@@ -29,7 +29,7 @@ export default function PageLayout({
     <div
       className="page-background"
       style={{
-        background: "linear-gradient(to bottom, #256670, #1E425E);",
+        background: "linear-gradient(to bottom, #256670, #1E425E)",
         height: "93vh",
         display: "flex",
         alignContent: "center",
