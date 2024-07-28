@@ -45,11 +45,12 @@ BUG FIXES/CLEANUP
 - [x] clean up edit modal
 - [x] fix mobile view
 - [x] Fix background height
-- [] reload page on update/create
+- [x] reload page on update/create
 - [x] fix background dimming
-- [] Get delete confirmation working w/ dialog
-- [] Fix Confirmation dialog when update/create
+- [x] Fix Confirmation dialog when update/create
 - [x] Clean up site for screenshots
+- [] Fix delete confirmation dialog overlapping or being obscured by parent modal
+- [] Fix parallel routing trying to go to unknown page after deletion.
 - [] Clean up Readme
 
   TO DO LATER:
@@ -57,7 +58,16 @@ BUG FIXES/CLEANUP
 - [] rig up up/downvotes - complex, will need to refactor user history
 - [] set up unit tests for operations
 - [] Uniform CRUD operation methods
+- [] Profile Page to just view the selected user's posts
 
 WHAT WENT WELL:
 
+- Vercel/Postgres was real easy to use
+- Drizzle was a nice experience.
+- Clerk was a simple set up, no problems.
+
 WHAT TO DO BETTER NEXT TIME:
+
+- Ran into a lot of difficulties getting used to NextJS (lack of state in server app made modals difficult)
+- Use tailwind for on the fly changes .
+- Sentry is probably overkill for this kind of app

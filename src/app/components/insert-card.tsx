@@ -12,7 +12,6 @@ import Button from "@mui/material/Button";
 import { useForm, type SubmitHandler, Controller } from "react-hook-form";
 import { createPost } from "../actions/actions";
 import Snackbar from "@mui/material/Snackbar";
-import CloseIcon from "@mui/icons-material/Close";
 
 interface IFormInputs {
   subjectName: string;
@@ -63,9 +62,10 @@ export default function InsertCard() {
         data.fourthThing,
         data.fifthThing
       );
-      setToastMessage("Post Created!");
+      setToastMessage("Post Created");
       handleToastOpen();
       handleClose();
+      setTimeout(() => window.location.reload(), 500);
     } catch (error) {
       setToastMessage("Error: " + String(error));
       handleToastOpen();

@@ -16,6 +16,8 @@ import { GeistSans } from "geist/font/sans";
 import InsertCard from "./components/insert-card";
 
 import Link from "next/link";
+import { Suspense } from "react";
+import Skeleton from "@mui/material/Skeleton";
 
 export const metadata = {
   title: "Five Things!",
@@ -69,13 +71,16 @@ export default function RootLayout({
                 >
                   <SignedOut>
                     <SignInButton>
-                      {/* annoying workaround to make the icon clickable when wrapped in clerk button */}
-                      <LoginIcon style={{ cursor: "hand" }} />
+                      <Suspense fallback={<Skeleton variant="circular" />}>
+                        <LoginIcon style={{ cursor: "hand" }} />
+                      </Suspense>
                     </SignInButton>
                   </SignedOut>
                   <SignedIn>
                     <InsertCard />
-                    <UserButton />
+                    <Suspense fallback={<Skeleton variant="circular" />}>
+                      <UserButton />
+                    </Suspense>
                   </SignedIn>
                 </div>
               </header>
