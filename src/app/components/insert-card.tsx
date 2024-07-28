@@ -54,28 +54,36 @@ export default function InsertCard() {
   const { handleSubmit, control } = useForm<IFormInputs>();
 
   const onSubmit: SubmitHandler<IFormInputs> = async (data) => {
-    console.log("Added", data);
     try {
-      // await createPost(
-      //   data.subjectName,
-      //   data.firstThing,
-      //   data.secondThing,
-      //   data.thirdThing,
-      //   data.fourthThing,
-      //   data.fifthThing
-      // );
+      await createPost(
+        data.subjectName,
+        data.firstThing,
+        data.secondThing,
+        data.thirdThing,
+        data.fourthThing,
+        data.fifthThing
+      );
       setToastMessage("Post Created!");
+      handleToastOpen();
+      handleClose();
     } catch (error) {
       setToastMessage("Error: " + String(error));
+      handleToastOpen();
     }
-    handleToastOpen();
-    handleClose();
   };
 
   return (
     <>
       <AddCircleIcon sx={{ color: "white" }} onClick={handleOpen} />
-
+      <Snackbar
+        anchorOrigin={{
+          vertical: "bottom",
+          horizontal: "right",
+        }}
+        open={toastState}
+        onClose={handleToastClose}
+        message={toastMessage}
+      />
       <Modal
         open={modalOpen}
         onClose={handleClose}
@@ -83,15 +91,6 @@ export default function InsertCard() {
         aria-describedby="modal-modal-description"
       >
         <>
-          <Snackbar
-            anchorOrigin={{
-              vertical: "top",
-              horizontal: "right",
-            }}
-            open={toastState}
-            onClose={handleToastClose}
-            message={toastMessage}
-          />
           <Card sx={style}>
             <form onSubmit={handleSubmit(onSubmit)}>
               <CardContent sx={{ p: 0 }}>

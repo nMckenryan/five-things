@@ -29,6 +29,10 @@ export default function DeletePostButton(props: DeleteProps) {
 
   return (
     <>
+      <Button className="closeButton" onClick={handleClickOpen}>
+        <DeleteIcon />
+      </Button>
+
       <dialog
         open={open}
         onClose={handleClose}
@@ -53,9 +57,6 @@ export default function DeletePostButton(props: DeleteProps) {
           </Button>
         </DialogActions>
       </dialog>
-      <Button className="closeButton" onClick={handleClickOpen}>
-        <DeleteIcon />
-      </Button>
     </>
   );
 }
