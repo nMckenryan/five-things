@@ -62,8 +62,8 @@ export default function DeletePostButton(props: DeleteProps) {
 
       <Snackbar
         anchorOrigin={{
-          vertical: "bottom",
-          horizontal: "right",
+          vertical: "top",
+          horizontal: "center",
         }}
         open={toastState}
         onClose={handleToastClose}

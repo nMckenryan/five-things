@@ -77,8 +77,8 @@ export default function InsertCard() {
       <AddCircleIcon sx={{ color: "white" }} onClick={handleOpen} />
       <Snackbar
         anchorOrigin={{
-          vertical: "bottom",
-          horizontal: "right",
+          vertical: "top",
+          horizontal: "center",
         }}
         open={toastState}
         onClose={handleToastClose}

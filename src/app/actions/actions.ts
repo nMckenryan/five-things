@@ -54,7 +54,7 @@ export async function updatePost(postId: number, subjectName: string, fiveThing1
 
 
 export async function deletePost(postId: number) {
-    console.log("updating post");
+    console.log("deleting post");
     try {
         await db.delete(posts).where(eq(posts.id, postId));
     } catch (error) {
