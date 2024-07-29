@@ -3,9 +3,10 @@
 import "~/styles/globals.css";
 import EditIcon from "@mui/icons-material/Edit";
 import Button from "@mui/material/Button";
-import DeletePostButton from "./delete-button";
+
 import { getPostUserId } from "~/server/queries";
 import { auth } from "@clerk/nextjs/server";
+import DeletePostButton from "./delete-button";
 
 export default async function ConditionalTaskbarButtons({
   postId,

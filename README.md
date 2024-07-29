@@ -52,7 +52,7 @@ BUG FIXES/CLEANUP
 - [x] Fix delete confirmation dialog overlapping or being obscured by parent modal
 - [x] Fix Conditional rendering of edit/delete buttons, allowing only author to do so
 - [] Fix parallel routing trying to go to unknown page after deletion.
-- [] clean up actions/queries
+- [x] clean up actions/queries
 - [] Clean up Readme
 
   TO DO LATER:

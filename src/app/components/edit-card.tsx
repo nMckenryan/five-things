@@ -11,9 +11,9 @@ import { useForm, type SubmitHandler, Controller } from "react-hook-form";
 import { updatePost } from "../actions/actions";
 import CloseIcon from "@mui/icons-material/Close";
 import CancelIcon from "@mui/icons-material/Cancel";
-import DeletePostButton from "./delete-button";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
+import DeletePostButton from "./delete-button";
 
 const style = {
   position: "absolute",
