@@ -71,9 +71,7 @@ export default function RootLayout({
                 >
                   <SignedOut>
                     <SignInButton>
-                      <Suspense fallback={<Skeleton variant="circular" />}>
-                        <LoginIcon style={{ cursor: "hand" }} />
-                      </Suspense>
+                      <LoginIcon style={{ cursor: "hand" }} />
                     </SignInButton>
                   </SignedOut>
                   <SignedIn>

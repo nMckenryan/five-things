@@ -1,8 +1,8 @@
 import "~/styles/globals.css";
-import EditIcon from "@mui/icons-material/Edit";
 import CloseIcon from "@mui/icons-material/Close";
 import Button from "@mui/material/Button";
-import DeletePostButton from "./delete-button";
+import { SignedIn } from "@clerk/nextjs";
+import ConditionalTaskbarButtons from "./conditional-taskbar-buttons";
 
 export default function WindowLayout({
   postId,
@@ -24,10 +24,9 @@ export default function WindowLayout({
         className="window-taskbar"
         style={{ display: "flex", justifyContent: "flex-end" }}
       >
-        <DeletePostButton postIdToDelete={postId} />
-        <Button className="editButton" href={`/post/${postId}/edit`}>
-          <EditIcon />
-        </Button>
+        <SignedIn>
+          <ConditionalTaskbarButtons postId={postId} />
+        </SignedIn>
 
         <Button style={{ border: "none", background: "none" }} href="/">
           <CloseIcon style={{ cursor: "pointer" }} />

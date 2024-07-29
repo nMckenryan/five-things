@@ -49,7 +49,8 @@ BUG FIXES/CLEANUP
 - [x] fix background dimming
 - [x] Fix Confirmation dialog when update/create
 - [x] Clean up site for screenshots
-- [] Fix delete confirmation dialog overlapping or being obscured by parent modal
+- [x] Fix delete confirmation dialog overlapping or being obscured by parent modal
+- [x] Fix Conditional rendering of edit/delete buttons, allowing only author to do so
 - [] Fix parallel routing trying to go to unknown page after deletion.
 - [] Clean up Readme
 

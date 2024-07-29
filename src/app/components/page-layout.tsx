@@ -1,11 +1,8 @@
 import "~/styles/globals.css";
-import EditIcon from "@mui/icons-material/Edit";
 import CloseIcon from "@mui/icons-material/Close";
 import Button from "@mui/material/Button";
-import DeletePostButton from "./delete-button";
-import { getPostUserId } from "~/server/queries";
-import { auth } from "@clerk/nextjs/server";
 import { SignedIn } from "@clerk/nextjs";
+import ConditionalTaskbarButtons from "./conditional-taskbar-buttons";
 
 export default function PageLayout({
   postId,
@@ -14,17 +11,6 @@ export default function PageLayout({
   postId: number;
   children: React.ReactNode;
 }) {
-  const user = auth();
-  const loggedInUserId = user.userId ?? "Not Logged In";
-  let postUser = "";
-
-  const postUserId = async () => {
-    const result = await getPostUserId(postId);
-    postUser = result ?? "Empty User Id";
-  };
-
-  const isUserAuthorisedToEdit = loggedInUserId === postUser;
-
   return (
     <div
       className="page-background"
@@ -51,15 +37,7 @@ export default function PageLayout({
           style={{ display: "flex", justifyContent: "flex-end" }}
         >
           <SignedIn>
-            {isUserAuthorisedToEdit && (
-              <>
-                <DeletePostButton postIdToDelete={postId} />
-
-                <Button className="editButton" href={`/post/${postId}/edit`}>
-                  <EditIcon />
-                </Button>
-              </>
-            )}
+            <ConditionalTaskbarButtons postId={postId} />
           </SignedIn>
 
           <Button style={{ border: "none", background: "none" }} href="/">

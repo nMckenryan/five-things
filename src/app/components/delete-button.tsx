@@ -45,8 +45,9 @@ export default function DeletePostButton(props: DeleteProps) {
       setToastMessage("Post Deleted");
       handleToastOpen();
       handleClose();
-      router.refresh();
-      setTimeout(() => router.push("/"), 500);
+      setTimeout(() => {
+        router.push("/");
+      }, 500);
     } catch (error) {
       setToastMessage("Error: " + String(error));
       handleToastOpen();
@@ -74,6 +75,13 @@ export default function DeletePostButton(props: DeleteProps) {
         onClose={handleClose}
         aria-labelledby="alert-dialog-title"
         aria-describedby="alert-dialog-description"
+        style={{
+          padding: "0",
+          border: "none",
+          background: "#EDFA8B",
+          zIndex: 20,
+          boxShadow: "0px 4px 4px rgba(0, 0, 0, 0.25)",
+        }}
       >
         <DialogTitle id="alert-dialog-title">Delete this Post?</DialogTitle>
         <DialogContent>
@@ -92,6 +100,20 @@ export default function DeletePostButton(props: DeleteProps) {
           </Button>
         </DialogActions>
       </dialog>
+      {/* Blurs background when dialog open */}
+      {open && (
+        <div
+          style={{
+            position: "fixed",
+            top: 0,
+            left: 0,
+            width: "100%",
+            height: "100%",
+            backgroundColor: "rgba(0, 0, 0, 0.5)",
+            zIndex: 10,
+          }}
+        />
+      )}
     </>
   );
 }
