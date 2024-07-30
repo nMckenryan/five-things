@@ -12,11 +12,11 @@ import { deletePost } from "../actions/actions";
 import { useRouter } from "next/navigation";
 import Snackbar from "@mui/material/Snackbar";
 
-interface DeleteProps {
+export default function DeletePostButton({
+  postIdToDelete,
+}: {
   postIdToDelete: number;
-}
-
-export default function DeletePostButton(props: DeleteProps) {
+}) {
   const [open, setOpen] = React.useState(false);
 
   const [toastState, setToastState] = React.useState(false);
@@ -41,7 +41,7 @@ export default function DeletePostButton(props: DeleteProps) {
 
   async function confirmDeletePost() {
     try {
-      await deletePost(props.postIdToDelete);
+      await deletePost(postIdToDelete);
       setToastMessage("Post Deleted");
       handleToastOpen();
       handleClose();

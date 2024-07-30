@@ -13,7 +13,7 @@ import CloseIcon from "@mui/icons-material/Close";
 import CancelIcon from "@mui/icons-material/Cancel";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
-import DeletePostButton from "./delete-button";
+import DeletePostButton from "./delete-post-button";
 
 const style = {
   position: "absolute",

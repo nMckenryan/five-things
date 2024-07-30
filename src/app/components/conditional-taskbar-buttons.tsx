@@ -6,7 +6,7 @@ import Button from "@mui/material/Button";
 
 import { getPostUserId } from "~/server/queries";
 import { auth } from "@clerk/nextjs/server";
-import DeletePostButton from "./delete-button";
+import DeletePostButton from "./delete-post-button";
 
 export default async function ConditionalTaskbarButtons({
   postId,
@@ -22,7 +22,7 @@ export default async function ConditionalTaskbarButtons({
 
   return (
     <>
-      {isUserAuthorisedToEdit && (
+      {isUserAuthorisedToEdit ? (
         <>
           <DeletePostButton postIdToDelete={postId} />
 
@@ -30,6 +30,8 @@ export default async function ConditionalTaskbarButtons({
             <EditIcon />
           </Button>
         </>
+      ) : (
+        <></>
       )}
     </>
   );
