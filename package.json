@@ -20,7 +20,7 @@
     "@emotion/server": "^11.11.0",
     "@emotion/styled": "^11.11.5",
     "@fontsource/bebas-neue": "^5.0.20",
-    "@mui/icons-material": "^5.15.19",
+    "@mui/icons-material": "^5.16.5",
     "@mui/material-nextjs": "^5.15.11",
     "@sentry/nextjs": "^8.17.0",
     "@t3-oss/env-nextjs": "^0.10.1",

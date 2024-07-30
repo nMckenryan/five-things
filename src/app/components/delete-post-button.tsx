@@ -3,7 +3,7 @@
 import DeleteIcon from "@mui/icons-material/Delete";
 import "../../styles/bullet-card.css";
 import Button from "@mui/material/Button";
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import DialogActions from "@mui/material/DialogActions";
 import DialogContent from "@mui/material/DialogContent";
 import DialogContentText from "@mui/material/DialogContentText";
@@ -39,13 +39,21 @@ export default function DeletePostButton({
     setOpen(false);
   };
 
+  useEffect(() => {
+    return () => {
+      clearTimeout(timeoutId);
+    };
+  }, []);
+
+  let timeoutId: NodeJS.Timeout;
+
   async function confirmDeletePost() {
     try {
       await deletePost(postIdToDelete);
       setToastMessage("Post Deleted");
       handleToastOpen();
       handleClose();
-      setTimeout(() => {
+      timeoutId = setTimeout(() => {
         router.push("/");
       }, 500);
     } catch (error) {
@@ -71,7 +79,11 @@ export default function DeletePostButton({
       />
 
       <dialog
-        open={open}
+        ref={(dialog) => {
+          if (dialog) {
+            dialog.open = open;
+          }
+        }}
         onClose={handleClose}
         aria-labelledby="alert-dialog-title"
         aria-describedby="alert-dialog-description"
