@@ -18,6 +18,7 @@ import InsertCard from "./components/insert-card";
 import Link from "next/link";
 import { Suspense } from "react";
 import Skeleton from "@mui/material/Skeleton";
+import { CSPostHogProvider } from "./_analytics/provider";
 
 export const metadata = {
   title: "Five Things!",
@@ -34,63 +35,65 @@ export default function RootLayout({
 }) {
   return (
     <ClerkProvider>
-      <html lang="en">
-        <body className={GeistSans.className}>
-          <AppRouterCacheProvider>
-            <ThemeProvider theme={theme}>
-              {/* TOP NAV */}
-              <header
-                style={{
-                  display: "flex",
-                  justifyContent: "space-between",
-                  backgroundColor: "#407056",
-                  position: "sticky",
-                  top: "0",
-                  padding: "8px",
-                  boxShadow: "0px 4px 4px rgba(0, 0, 0, 0.25)",
-                }}
-              >
-                <Link href="/">
-                  <Typography
-                    fontFamily="Bebas Neue"
-                    fontSize="2rem"
-                    color={"white"}
-                  >
-                    Five Things!
-                  </Typography>
-                </Link>
-                <div
-                  className="leftNav"
+      <CSPostHogProvider>
+        <html lang="en">
+          <body className={GeistSans.className}>
+            <AppRouterCacheProvider>
+              <ThemeProvider theme={theme}>
+                {/* TOP NAV */}
+                <header
                   style={{
                     display: "flex",
-                    alignItems: "center",
-                    gap: "1rem",
-                    padding: "4px",
-                    justifyContent: "center",
+                    justifyContent: "space-between",
+                    backgroundColor: "#407056",
+                    position: "sticky",
+                    top: "0",
+                    padding: "8px",
+                    boxShadow: "0px 4px 4px rgba(0, 0, 0, 0.25)",
                   }}
                 >
-                  <SignedOut>
-                    <SignInButton>
-                      <LoginIcon style={{ cursor: "hand" }} />
-                    </SignInButton>
-                  </SignedOut>
-                  <SignedIn>
-                    <InsertCard />
-                    <Suspense fallback={<Skeleton variant="circular" />}>
-                      <UserButton />
-                    </Suspense>
-                  </SignedIn>
-                </div>
-              </header>
-              <main>
-                {children}
-                {modal}
-                <div id="modal-root" />
-              </main>
-            </ThemeProvider>
-          </AppRouterCacheProvider>
-        </body>
-      </html>
+                  <Link href="/">
+                    <Typography
+                      fontFamily="Bebas Neue"
+                      fontSize="2rem"
+                      color={"white"}
+                    >
+                      Five Things!
+                    </Typography>
+                  </Link>
+                  <div
+                    className="leftNav"
+                    style={{
+                      display: "flex",
+                      alignItems: "center",
+                      gap: "1rem",
+                      padding: "4px",
+                      justifyContent: "center",
+                    }}
+                  >
+                    <SignedOut>
+                      <SignInButton>
+                        <LoginIcon style={{ cursor: "hand" }} />
+                      </SignInButton>
+                    </SignedOut>
+                    <SignedIn>
+                      <InsertCard />
+                      <Suspense fallback={<Skeleton variant="circular" />}>
+                        <UserButton />
+                      </Suspense>
+                    </SignedIn>
+                  </div>
+                </header>
+                <main>
+                  {children}
+                  {modal}
+                  <div id="modal-root" />
+                </main>
+              </ThemeProvider>
+            </AppRouterCacheProvider>
+          </body>
+        </html>
+      </CSPostHogProvider>
     </ClerkProvider>
   );
 }
