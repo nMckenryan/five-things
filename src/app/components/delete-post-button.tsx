@@ -3,7 +3,7 @@
 import DeleteIcon from "@mui/icons-material/Delete";
 import "../../styles/bullet-card.css";
 import Button from "@mui/material/Button";
-import React, { useEffect, useRef } from "react";
+import React, { useEffect } from "react";
 import DialogActions from "@mui/material/DialogActions";
 import DialogContent from "@mui/material/DialogContent";
 import DialogContentText from "@mui/material/DialogContentText";

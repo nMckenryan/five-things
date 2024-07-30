@@ -51,7 +51,8 @@ BUG FIXES/CLEANUP
 - [x] Clean up site for screenshots
 - [x] Fix delete confirmation dialog overlapping or being obscured by parent modal
 - [x] Fix Conditional rendering of edit/delete buttons, allowing only author to do so
-- [] Fix parallel routing trying to go to unknown page after deletion.
+- [x] Fix parallel routing trying to go to unknown page after deletion.
+- [] Fix modal not closing after deletion
 - [x] clean up actions/queries
 - [] Clean up Readme
 

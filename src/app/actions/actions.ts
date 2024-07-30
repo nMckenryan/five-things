@@ -2,7 +2,6 @@
 
 import { auth } from "@clerk/nextjs/server";
 import { eq } from "drizzle-orm/sql";
-import { redirect } from "next/dist/client/components/redirect";
 import { db } from "~/server/db";
 import { posts } from "~/server/db/schema";
 
@@ -27,7 +26,7 @@ export async function createPost(subjectName: string, fiveThing1: string, fiveTh
             userId: userId ?? "Unknown User",
         });
 
-        redirect("/");
+        console.log("inserted post");
     } catch (error) {
         console.log("Could not insert post: ", error);
     }
@@ -35,7 +34,7 @@ export async function createPost(subjectName: string, fiveThing1: string, fiveTh
 }
 
 export async function updatePost(postId: number, subjectName: string, fiveThing1: string, fiveThing2: string, fiveThing3: string, fiveThing4: string, fiveThing5: string) {
-    console.log("updating post");
+    console.log("updating post " + postId);
     try {
         await db.update(posts).set({
             subjectName,
@@ -54,10 +53,11 @@ export async function updatePost(postId: number, subjectName: string, fiveThing1
 
 
 export async function deletePost(postId: number) {
-    console.log("deleting post");
+    console.log("deleting post:" + postId);
     try {
         await db.delete(posts).where(eq(posts.id, postId));
     } catch (error) {
         console.log("Could not delete post: ", error);
     }
+
 }
