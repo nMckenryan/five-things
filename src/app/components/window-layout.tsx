@@ -6,9 +6,13 @@ import ConditionalTaskbarButtons from "./conditional-taskbar-buttons";
 
 export default function WindowLayout({
   postId,
+  isUserAuthorisedToEdit,
+  dismissModal,
   children,
 }: {
   postId: number;
+  isUserAuthorisedToEdit: boolean;
+  dismissModal: () => void;
   children: React.ReactNode;
 }) {
   return (
@@ -25,7 +29,11 @@ export default function WindowLayout({
         style={{ display: "flex", justifyContent: "flex-end" }}
       >
         <SignedIn>
-          <ConditionalTaskbarButtons postId={postId} />
+          <ConditionalTaskbarButtons
+            postId={postId}
+            isUserAuthorisedToEdit={isUserAuthorisedToEdit}
+            dismissModal={dismissModal}
+          />
         </SignedIn>
 
         <Button style={{ border: "none", background: "none" }} href="/">

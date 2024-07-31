@@ -52,6 +52,7 @@ The main purpose of this project is to get my head around Nextjs as well as the 
 - [x] toast confirmation on server actions
 - [x] Get Delete Button Working properly
 - [x] Implement Analytics
+- [] Deletion - get routing working properly (not routing to defunct page, not refreshing on delete.)
 - [] Clean up Readme and DB for finalisation
 
 BUG FIXES/CLEANUP
@@ -69,7 +70,7 @@ BUG FIXES/CLEANUP
 - [x] Fix delete confirmation dialog overlapping or being obscured by parent modal
 - [x] Fix Conditional rendering of edit/delete buttons, allowing only author to do so
 - [x] Fix parallel routing trying to go to unknown page after deletion.
-- [] Fix modal not closing after deletion
+- [x] Fix modal not closing after deletion
 - [x] clean up actions/queries
 - [x] Clean up Readme
 

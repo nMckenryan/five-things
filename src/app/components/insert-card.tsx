@@ -12,6 +12,7 @@ import Button from "@mui/material/Button";
 import { useForm, type SubmitHandler, Controller } from "react-hook-form";
 import { createPost } from "../actions/actions";
 import Snackbar from "@mui/material/Snackbar";
+import { useRouter } from "next/navigation";
 
 interface IFormInputs {
   subjectName: string;
@@ -42,6 +43,8 @@ export default function InsertCard() {
   const [toastState, setToastState] = React.useState(false);
   const [toastMessage, setToastMessage] = React.useState("");
 
+  const router = useRouter();
+
   const handleToastOpen = () => {
     setToastState(true);
   };
@@ -65,7 +68,10 @@ export default function InsertCard() {
       setToastMessage("Post Created");
       handleToastOpen();
       handleClose();
-      setTimeout(() => window.location.reload(), 500);
+      setTimeout(() => {
+        router.push("/");
+        router.refresh();
+      }, 500);
     } catch (error) {
       setToastMessage("Error: " + String(error));
       handleToastOpen();

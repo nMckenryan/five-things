@@ -1,16 +1,27 @@
+"use server";
+
 import "~/styles/globals.css";
 import CloseIcon from "@mui/icons-material/Close";
 import Button from "@mui/material/Button";
 import { SignedIn } from "@clerk/nextjs";
 import ConditionalTaskbarButtons from "./conditional-taskbar-buttons";
+import { auth } from "@clerk/nextjs/server";
+import { getPostUserId } from "~/server/queries";
 
-export default function PageLayout({
+export default async function PageLayout({
   postId,
   children,
 }: {
   postId: number;
   children: React.ReactNode;
 }) {
+  const user = auth();
+  const loggedInUserId = user.userId ?? "Not Logged In";
+
+  const postUserId = await getPostUserId(postId);
+
+  const isUserAuthorisedToEdit = postUserId === loggedInUserId;
+
   return (
     <div
       className="page-background"
@@ -37,7 +48,10 @@ export default function PageLayout({
           style={{ display: "flex", justifyContent: "flex-end" }}
         >
           <SignedIn>
-            <ConditionalTaskbarButtons postId={postId} />
+            <ConditionalTaskbarButtons
+              postId={postId}
+              isUserAuthorisedToEdit={isUserAuthorisedToEdit}
+            />
           </SignedIn>
 
           <Button style={{ border: "none", background: "none" }} href="/">

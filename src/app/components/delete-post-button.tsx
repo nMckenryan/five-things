@@ -14,8 +14,10 @@ import Snackbar from "@mui/material/Snackbar";
 
 export default function DeletePostButton({
   postIdToDelete,
+  dismissModal,
 }: {
   postIdToDelete: number;
+  dismissModal?: () => void;
 }) {
   const [open, setOpen] = React.useState(false);
 
@@ -54,7 +56,9 @@ export default function DeletePostButton({
       handleToastOpen();
       handleClose();
       timeoutId = setTimeout(() => {
+        if (dismissModal != undefined) dismissModal();
         router.push("/");
+        router.refresh();
       }, 500);
     } catch (error) {
       setToastMessage("Error: " + String(error));

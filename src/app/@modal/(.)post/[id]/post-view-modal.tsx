@@ -7,9 +7,11 @@ import WindowLayout from "~/app/components/window-layout";
 
 export function PostViewModal({
   postId,
+  isUserAuthorisedToEdit,
   children,
 }: {
   postId: number;
+  isUserAuthorisedToEdit: boolean;
   children: React.ReactNode;
 }) {
   const router = useRouter();
@@ -36,7 +38,13 @@ export function PostViewModal({
         zIndex: 10,
       }}
     >
-      <WindowLayout postId={postId}>{children}</WindowLayout>
+      <WindowLayout
+        postId={postId}
+        isUserAuthorisedToEdit={isUserAuthorisedToEdit}
+        dismissModal={onDismiss}
+      >
+        {children}
+      </WindowLayout>
     </dialog>,
     document.getElementById("modal-root")!
   );
