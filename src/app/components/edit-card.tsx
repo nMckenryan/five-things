@@ -6,7 +6,7 @@ import "../../styles/bullet-card.css";
 import Button from "@mui/material/Button";
 import React from "react";
 import Stack from "@mui/material/Stack";
-import Typography from "@mui/material/Typography";
+
 import { useForm, type SubmitHandler, Controller } from "react-hook-form";
 import { updatePost } from "../actions/actions";
 import CloseIcon from "@mui/icons-material/Close";
@@ -14,7 +14,6 @@ import CancelIcon from "@mui/icons-material/Cancel";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 import DeletePostButton from "./delete-post-button";
-import middleware from "~/middleware";
 
 const style = {
   position: "absolute",
@@ -83,9 +82,7 @@ export default function EditCard(props: Props) {
             null;
           }}
         />
-        <Typography variant="h6" sx={{ textAlign: "center" }}>
-          Edit Five Things!
-        </Typography>
+        <h4>Edit Five Things!</h4>
         <Link href="/">
           <Button style={{ border: "none", background: "none" }}>
             <CloseIcon style={{ cursor: "pointer" }} />

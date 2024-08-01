@@ -1,4 +1,4 @@
-import { Card, CardContent, Typography, CardActions } from "@mui/material";
+import { Card, CardContent, CardActions } from "@mui/material";
 import "../../styles/bullet-card.css";
 
 interface Props {
@@ -26,11 +26,11 @@ export default function BulletCardModal(props: Props) {
   }).format(props.dateUpdated);
 
   const lastUpdated = new Intl.DateTimeFormat("en-AU", {
-    year: "numeric",
-    month: "numeric",
     day: "numeric",
     hour: "numeric",
     minute: "numeric",
+    year: "numeric",
+    month: "numeric",
   }).format(props.dateUpdated);
 
   return (
@@ -42,9 +42,8 @@ export default function BulletCardModal(props: Props) {
       }}
     >
       <CardContent style={{ paddingTop: "0px", paddingBottom: "0px" }}>
-        <Typography variant="h6" component="div" className="subjectName">
-          {props.subjectName}
-        </Typography>
+        <h3>{props.subjectName}</h3>
+
         <ul className="goodBullets">
           <li key={props.subjectName + props.postThing1}>{props.postThing1}</li>
           <li key={props.subjectName + props.postThing2}>{props.postThing2}</li>
@@ -60,10 +59,10 @@ export default function BulletCardModal(props: Props) {
       >
         <p className="cardItems">{props.userName}</p>
 
-        <p className="cardItems">Date Created: {dateCreated}</p>
+        <p className="cardItems">Created: {dateCreated}</p>
 
         <p className="cardItems">
-          Last Updated:
+          Updated:
           {lastUpdated}
         </p>
       </CardActions>

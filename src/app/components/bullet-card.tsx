@@ -1,4 +1,4 @@
-import { Card, CardContent, Typography, CardActions } from "@mui/material";
+import { Card, CardContent, CardActions } from "@mui/material";
 import "../../styles/bullet-card.css";
 
 interface Props {
@@ -21,14 +21,8 @@ export default function BulletCard(props: Props) {
       <CardContent
         style={{ marginTop: "5px", paddingTop: "2px", paddingBottom: "0px" }}
       >
-        <Typography
-          variant="h6"
-          component="div"
-          className="subjectName"
-          maxWidth={"100%"}
-        >
-          {props.subjectName}
-        </Typography>
+        <h3>{props.subjectName}</h3>
+
         <ul className="goodBullets">
           {props.fiveGoodThings.map((thing, index) => (
             <li key={`${props.subjectName}-${thing}-${index}`}>
