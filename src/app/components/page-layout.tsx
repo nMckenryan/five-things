@@ -48,10 +48,7 @@ export default async function PageLayout({
           style={{ display: "flex", justifyContent: "flex-end" }}
         >
           <SignedIn>
-            <ConditionalTaskbarButtons
-              postId={postId}
-              isUserAuthorisedToEdit={isUserAuthorisedToEdit}
-            />
+            <ConditionalTaskbarButtons postId={postId} />
           </SignedIn>
 
           <Button style={{ border: "none", background: "none" }} href="/">

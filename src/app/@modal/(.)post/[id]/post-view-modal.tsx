@@ -4,6 +4,7 @@ import { type ElementRef, useEffect, useRef } from "react";
 import { useRouter } from "next/navigation";
 import { createPortal } from "react-dom";
 import WindowLayout from "~/app/components/window-layout";
+import ModalContext from "~/app/providers/ModalProvider";
 
 export function PostViewModal({
   postId,
@@ -28,24 +29,20 @@ export function PostViewModal({
   }
 
   return createPortal(
-    <dialog
-      ref={dialogRef}
-      onClose={onDismiss}
-      style={{
-        padding: "0",
-        border: "none",
-        background: "#EDFA8B",
-        zIndex: 10,
-      }}
-    >
-      <WindowLayout
-        postId={postId}
-        isUserAuthorisedToEdit={isUserAuthorisedToEdit}
-        dismissModal={onDismiss}
+    <ModalContext.Provider value={{ onDismiss, isUserAuthorisedToEdit }}>
+      <dialog
+        ref={dialogRef}
+        onClose={onDismiss}
+        style={{
+          padding: "0",
+          border: "none",
+          background: "#EDFA8B",
+          zIndex: 10,
+        }}
       >
-        {children}
-      </WindowLayout>
-    </dialog>,
+        <WindowLayout postId={postId}>{children}</WindowLayout>
+      </dialog>
+    </ModalContext.Provider>,
     document.getElementById("modal-root")!
   );
 }

@@ -5,24 +5,20 @@ import EditIcon from "@mui/icons-material/Edit";
 import Button from "@mui/material/Button";
 
 import DeletePostButton from "./delete-post-button";
+import { useContext } from "react";
+import ModalContext from "../providers/ModalProvider";
 
 export default function ConditionalTaskbarButtons({
   postId,
-  dismissModal,
-  isUserAuthorisedToEdit,
 }: {
   postId: number;
-  dismissModal: () => void;
-  isUserAuthorisedToEdit: boolean;
 }) {
+  const { onDismiss, isUserAuthorisedToEdit } = useContext(ModalContext);
   return (
     <>
       {isUserAuthorisedToEdit ? (
         <>
-          <DeletePostButton
-            postIdToDelete={postId}
-            dismissModal={dismissModal}
-          />
+          <DeletePostButton postIdToDelete={postId} dismissModal={onDismiss} />
 
           <Button className="editButton" href={`/post/${postId}/edit`}>
             <EditIcon />
