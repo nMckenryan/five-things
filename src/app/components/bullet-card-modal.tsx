@@ -10,12 +10,29 @@ interface Props {
   postThing5: string;
   agreeCount: number;
   disagreeCount: number;
+  dateUpdated: Date;
   dateCreated: Date;
   userName: string;
   postId: number;
 }
 
 export default function BulletCardModal(props: Props) {
+  const dateCreated = new Intl.DateTimeFormat("en-AU", {
+    year: "numeric",
+    month: "numeric",
+    day: "numeric",
+    hour: "numeric",
+    minute: "numeric",
+  }).format(props.dateUpdated);
+
+  const lastUpdated = new Intl.DateTimeFormat("en-AU", {
+    year: "numeric",
+    month: "numeric",
+    day: "numeric",
+    hour: "numeric",
+    minute: "numeric",
+  }).format(props.dateUpdated);
+
   return (
     <Card
       className="fiveCardExpanded"
@@ -37,11 +54,17 @@ export default function BulletCardModal(props: Props) {
         </ul>
       </CardContent>
 
-      <CardActions className="cardFooter">
-        <p>{props.userName}</p>
-        <p>
-          {props.dateCreated.getDate()}/{props.dateCreated.getMonth()}/
-          {props.dateCreated.getFullYear()}
+      <CardActions
+        className="cardFooter"
+        sx={{ display: "flex", flexDirection: "column" }}
+      >
+        <p className="cardItems">{props.userName}</p>
+
+        <p className="cardItems">Date Created: {dateCreated}</p>
+
+        <p className="cardItems">
+          Last Updated:
+          {lastUpdated}
         </p>
       </CardActions>
     </Card>

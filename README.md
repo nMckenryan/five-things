@@ -53,7 +53,7 @@ The main purpose of this project is to get my head around Nextjs as well as the 
 - [x] Get Delete Button Working properly
 - [x] Implement Analytics
 - [] Deletion - get routing working properly (not routing to defunct page, not refreshing on delete.)
-- [] Clean up Readme and DB for finalisation
+- [] Clean up DB for finalisation
 
 BUG FIXES/CLEANUP
 
@@ -73,6 +73,7 @@ BUG FIXES/CLEANUP
 - [x] Fix modal not closing after deletion
 - [x] clean up actions/queries
 - [x] Clean up Readme
+- [] Clear Data on insert page when done
 
 FUTURE FEATURES
 

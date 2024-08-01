@@ -1,12 +1,11 @@
 import Link from "next/link";
 import BulletCard from "./components/bullet-card";
 import Skeleton from "@mui/material/Skeleton";
-
-import styles from "./index.module.css";
-
-import { getPosts } from "~/server/queries";
 import { clerkClient } from "@clerk/nextjs/server";
 import { Suspense } from "react";
+
+import styles from "./index.module.css";
+import { getPosts } from "~/server/queries";
 
 //if DB is changed, updates page on next visit
 export const dynamic = "force-dynamic";
@@ -14,11 +13,10 @@ export const dynamic = "force-dynamic";
 export default async function Home() {
   const posts = await getPosts();
 
-  async function getPostUserId(id: string) {
-    const user = await clerkClient.users.getUser(id);
-    const userName = user.fullName ?? "Anonymous";
-    return String(userName);
-  }
+  const getUserName = async (userId: string) => {
+    const user = await clerkClient.users.getUser(userId);
+    return user.fullName ?? "Anonymous";
+  };
 
   return (
     <main className={styles.main}>
@@ -33,7 +31,8 @@ export default async function Home() {
           }}
         >
           {posts.map(async (post) => {
-            const userName = await getPostUserId(post.userId);
+            const userName = await getUserName(post.userId);
+
             return (
               <Suspense
                 key={post.id}
@@ -41,7 +40,7 @@ export default async function Home() {
                   <Skeleton variant="rectangular" width={210} height={60} />
                 }
               >
-                <Link key={post.id} href={`/post/${post.id}`}>
+                <Link href={`/post/${post.id}`}>
                   <BulletCard
                     subjectName={post.subjectName}
                     fiveGoodThings={[
@@ -54,7 +53,6 @@ export default async function Home() {
                     userId={post.userId}
                     userName={userName}
                     dateCreated={post.createdAt}
-                    key={post.id}
                   />
                 </Link>
               </Suspense>

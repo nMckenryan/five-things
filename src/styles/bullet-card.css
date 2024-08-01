@@ -4,6 +4,16 @@
     justify-content: space-around;
 }
 
+.cardItems {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px;
+    margin: 0%;
+    font-size: small;
+}
+
 
 .goodBullets {
     list-style-type: "➕";

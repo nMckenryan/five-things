@@ -8,6 +8,8 @@ export default async function FullPagePostView(props: { postId: number }) {
   const user = await clerkClient.users.getUser(post.userId);
   const userName = user.fullName ?? "Anonymous";
 
+  const dateUpdated = post.updatedAt ? post.updatedAt : post.createdAt;
+
   return (
     <BulletCardModal
       postId={props.postId}
@@ -21,6 +23,7 @@ export default async function FullPagePostView(props: { postId: number }) {
       disagreeCount={post.disagreeCount}
       userName={userName}
       dateCreated={post.createdAt}
+      dateUpdated={dateUpdated}
       key={post.id}
     />
   );
