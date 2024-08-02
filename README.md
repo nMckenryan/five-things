@@ -53,6 +53,7 @@ The main purpose of this project is to get my head around Nextjs as well as the 
 - [x] Get Delete Button Working properly
 - [x] Implement Analytics
 - [] Deletion - get routing working properly (not routing to defunct page, not refreshing on delete.)
+- [] Refactor Toast modals
 - [] Clean up DB for finalisation
 
 BUG FIXES/CLEANUP

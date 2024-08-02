@@ -11,8 +11,8 @@ import Button from "@mui/material/Button";
 
 import { useForm, type SubmitHandler, Controller } from "react-hook-form";
 import { createPost } from "../actions/actions";
-import Snackbar from "@mui/material/Snackbar";
 import { useRouter } from "next/navigation";
+import ToastHandler, { useToastContext } from "./toast-handler";
 
 interface IFormInputs {
   subjectName: string;
@@ -34,24 +34,14 @@ const style = {
   width: "95%",
   maxWidth: "600px",
 };
-
 export default function InsertCard() {
   const [modalOpen, setModalOpen] = React.useState(false);
   const handleOpen = () => setModalOpen(true);
   const handleClose = () => setModalOpen(false);
 
-  const [toastState, setToastState] = React.useState(false);
-  const [toastMessage, setToastMessage] = React.useState("");
+  // const { openToast } = useToastContext();
 
   const router = useRouter();
-
-  const handleToastOpen = () => {
-    setToastState(true);
-  };
-
-  const handleToastClose = () => {
-    setToastState(false);
-  };
 
   const { handleSubmit, control } = useForm<IFormInputs>();
 
@@ -65,31 +55,20 @@ export default function InsertCard() {
         data.fourthThing,
         data.fifthThing
       );
-      setToastMessage("Post Created");
-      handleToastOpen();
+      // openToast("Post Created!");
       handleClose();
       setTimeout(() => {
         router.push("/");
         router.refresh();
       }, 500);
     } catch (error) {
-      setToastMessage("Error: " + String(error));
-      handleToastOpen();
+      // openToast("Error: " + String(error));
     }
   };
 
   return (
     <>
       <AddCircleIcon sx={{ color: "white" }} onClick={handleOpen} />
-      <Snackbar
-        anchorOrigin={{
-          vertical: "top",
-          horizontal: "center",
-        }}
-        open={toastState}
-        onClose={handleToastClose}
-        message={toastMessage}
-      />
       <Modal
         open={modalOpen}
         onClose={handleClose}
@@ -202,7 +181,11 @@ export default function InsertCard() {
                 </Stack>
               </CardContent>
               <CardActions
-                sx={{ display: "flex", justifyContent: "space-between", px: 0 }}
+                sx={{
+                  display: "flex",
+                  justifyContent: "space-between",
+                  px: 0,
+                }}
               >
                 <Button
                   variant="outlined"

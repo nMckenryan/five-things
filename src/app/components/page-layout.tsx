@@ -5,9 +5,6 @@ import CloseIcon from "@mui/icons-material/Close";
 import Button from "@mui/material/Button";
 import { SignedIn } from "@clerk/nextjs";
 import ConditionalTaskbarButtons from "./conditional-taskbar-buttons";
-import { auth } from "@clerk/nextjs/server";
-import { getPostUserId } from "~/server/queries";
-
 export default async function PageLayout({
   postId,
   children,
@@ -15,13 +12,6 @@ export default async function PageLayout({
   postId: number;
   children: React.ReactNode;
 }) {
-  const user = auth();
-  const loggedInUserId = user.userId ?? "Not Logged In";
-
-  const postUserId = await getPostUserId(postId);
-
-  const isUserAuthorisedToEdit = postUserId === loggedInUserId;
-
   return (
     <div
       className="page-background"

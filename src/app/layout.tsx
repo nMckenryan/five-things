@@ -54,6 +54,7 @@ export default function RootLayout({
                 >
                   <Link href="/">
                     <Typography
+                      className="logo"
                       fontFamily="Bebas Neue"
                       fontSize="2rem"
                       color={"white"}

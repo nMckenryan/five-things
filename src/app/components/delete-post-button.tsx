@@ -10,7 +10,7 @@ import DialogContentText from "@mui/material/DialogContentText";
 import DialogTitle from "@mui/material/DialogTitle";
 import { deletePost } from "../actions/actions";
 import { useRouter } from "next/navigation";
-import Snackbar from "@mui/material/Snackbar";
+import { useToastContext } from "./toast-handler";
 
 export default function DeletePostButton({
   postIdToDelete,
@@ -21,16 +21,7 @@ export default function DeletePostButton({
 }) {
   const [open, setOpen] = React.useState(false);
 
-  const [toastState, setToastState] = React.useState(false);
-  const [toastMessage, setToastMessage] = React.useState("");
-
-  const handleToastOpen = () => {
-    setToastState(true);
-  };
-
-  const handleToastClose = () => {
-    setToastState(false);
-  };
+  const { openToast } = useToastContext();
 
   const router = useRouter();
   const handleClickOpen = () => {
@@ -52,8 +43,7 @@ export default function DeletePostButton({
   async function confirmDeletePost() {
     try {
       await deletePost(postIdToDelete);
-      setToastMessage("Post Deleted");
-      handleToastOpen();
+      openToast("Post Deleted");
       handleClose();
       timeoutId = setTimeout(() => {
         if (dismissModal != undefined) dismissModal();
@@ -61,8 +51,7 @@ export default function DeletePostButton({
         router.refresh();
       }, 500);
     } catch (error) {
-      setToastMessage("Error: " + String(error));
-      handleToastOpen();
+      openToast("Error: " + String(error));
     }
   }
 
@@ -71,16 +60,6 @@ export default function DeletePostButton({
       <Button className="closeButton" onClick={handleClickOpen}>
         <DeleteIcon />
       </Button>
-
-      <Snackbar
-        anchorOrigin={{
-          vertical: "top",
-          horizontal: "center",
-        }}
-        open={toastState}
-        onClose={handleToastClose}
-        message={toastMessage}
-      />
 
       <dialog
         ref={(dialog) => {
