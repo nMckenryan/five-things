@@ -45,11 +45,9 @@ export default function DeletePostButton({
       await deletePost(postIdToDelete);
       openToast("Post Deleted");
       handleClose();
-      timeoutId = setTimeout(() => {
-        if (dismissModal != undefined) dismissModal();
-        router.push("/");
-        router.refresh();
-      }, 500);
+      if (dismissModal != undefined) dismissModal();
+      router.push("/");
+      router.refresh();
     } catch (error) {
       openToast("Error: " + String(error));
     }

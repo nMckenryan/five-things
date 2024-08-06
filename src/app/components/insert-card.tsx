@@ -57,10 +57,9 @@ export default function InsertCard() {
       );
       openToast("Post Created!");
       handleClose();
-      setTimeout(() => {
-        router.push("/");
-        router.refresh();
-      }, 500);
+
+      router.push("/");
+      router.refresh();
     } catch (error) {
       openToast("Error: " + String(error));
     }

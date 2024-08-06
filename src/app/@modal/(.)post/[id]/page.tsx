@@ -2,6 +2,7 @@ import FullPagePostView from "~/app/components/full-post-page";
 import { PostViewModal } from "./post-view-modal";
 import { auth } from "@clerk/nextjs/server";
 import { getPostUserId } from "~/server/queries";
+import ToastHandler from "~/app/components/toast-handler";
 
 export default async function PostModal({
   params: { id: postId },

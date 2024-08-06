@@ -41,58 +41,58 @@ export default function RootLayout({
           <body className={GeistSans.className}>
             <AppRouterCacheProvider>
               <ThemeProvider theme={theme}>
-                {/* TOP NAV */}
-                <header
-                  style={{
-                    display: "flex",
-                    justifyContent: "space-between",
-                    backgroundColor: "#407056",
-                    position: "sticky",
-                    top: "0",
-                    padding: "8px",
-                    boxShadow: "0px 4px 4px rgba(0, 0, 0, 0.25)",
-                  }}
-                >
-                  <Link href="/">
-                    <Typography
-                      className="logo"
-                      fontFamily="Bebas Neue"
-                      fontSize="2rem"
-                      color={"white"}
-                    >
-                      Five Things!
-                    </Typography>
-                  </Link>
-                  <div
-                    className="leftNav"
+                <ToastHandler>
+                  {/* TOP NAV */}
+                  <header
                     style={{
                       display: "flex",
-                      alignItems: "center",
-                      gap: "1rem",
-                      padding: "4px",
-                      justifyContent: "center",
+                      justifyContent: "space-between",
+                      backgroundColor: "#407056",
+                      position: "sticky",
+                      top: "0",
+                      padding: "8px",
+                      boxShadow: "0px 4px 4px rgba(0, 0, 0, 0.25)",
                     }}
                   >
-                    <SignedOut>
-                      <SignInButton>
-                        <LoginIcon sx={{ cursor: "hand", color: "white" }} />
-                      </SignInButton>
-                    </SignedOut>
-                    <SignedIn>
-                      <InsertCard />
-                      <Suspense fallback={<Skeleton variant="circular" />}>
-                        <UserButton />
-                      </Suspense>
-                    </SignedIn>
-                  </div>
-                </header>
-                <main>
-                  <ToastHandler>
+                    <Link href="/">
+                      <Typography
+                        className="logo"
+                        fontFamily="Bebas Neue"
+                        fontSize="2rem"
+                        color={"white"}
+                      >
+                        Five Things!
+                      </Typography>
+                    </Link>
+                    <div
+                      className="leftNav"
+                      style={{
+                        display: "flex",
+                        alignItems: "center",
+                        gap: "1rem",
+                        padding: "4px",
+                        justifyContent: "center",
+                      }}
+                    >
+                      <SignedOut>
+                        <SignInButton>
+                          <LoginIcon sx={{ cursor: "hand", color: "white" }} />
+                        </SignInButton>
+                      </SignedOut>
+                      <SignedIn>
+                        <InsertCard />
+                        <Suspense fallback={<Skeleton variant="circular" />}>
+                          <UserButton />
+                        </Suspense>
+                      </SignedIn>
+                    </div>
+                  </header>
+                  <main>
                     {children}
                     {modal}
                     <div id="modal-root" />
-                  </ToastHandler>
-                </main>
+                  </main>
+                </ToastHandler>
               </ThemeProvider>
             </AppRouterCacheProvider>
           </body>
