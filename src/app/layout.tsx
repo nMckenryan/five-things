@@ -19,6 +19,7 @@ import Link from "next/link";
 import { Suspense } from "react";
 import Skeleton from "@mui/material/Skeleton";
 import { CSPostHogProvider } from "./_analytics/provider";
+import ToastHandler from "./components/toast-handler";
 
 export const metadata = {
   title: "Five Things!",
@@ -74,7 +75,7 @@ export default function RootLayout({
                   >
                     <SignedOut>
                       <SignInButton>
-                        <LoginIcon style={{ cursor: "hand" }} />
+                        <LoginIcon sx={{ cursor: "hand", color: "white" }} />
                       </SignInButton>
                     </SignedOut>
                     <SignedIn>
@@ -86,9 +87,11 @@ export default function RootLayout({
                   </div>
                 </header>
                 <main>
-                  {children}
-                  {modal}
-                  <div id="modal-root" />
+                  <ToastHandler>
+                    {children}
+                    {modal}
+                    <div id="modal-root" />
+                  </ToastHandler>
                 </main>
               </ThemeProvider>
             </AppRouterCacheProvider>

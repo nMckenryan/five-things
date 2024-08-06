@@ -12,7 +12,7 @@ import Button from "@mui/material/Button";
 import { useForm, type SubmitHandler, Controller } from "react-hook-form";
 import { createPost } from "../actions/actions";
 import { useRouter } from "next/navigation";
-import ToastHandler, { useToastContext } from "./toast-handler";
+import { useToastContext } from "./toast-handler";
 
 interface IFormInputs {
   subjectName: string;
@@ -39,7 +39,7 @@ export default function InsertCard() {
   const handleOpen = () => setModalOpen(true);
   const handleClose = () => setModalOpen(false);
 
-  // const { openToast } = useToastContext();
+  const { openToast } = useToastContext();
 
   const router = useRouter();
 
@@ -55,14 +55,14 @@ export default function InsertCard() {
         data.fourthThing,
         data.fifthThing
       );
-      // openToast("Post Created!");
+      openToast("Post Created!");
       handleClose();
       setTimeout(() => {
         router.push("/");
         router.refresh();
       }, 500);
     } catch (error) {
-      // openToast("Error: " + String(error));
+      openToast("Error: " + String(error));
     }
   };
 
