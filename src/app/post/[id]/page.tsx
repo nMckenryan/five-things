@@ -1,7 +1,7 @@
 import FullPagePostView from "~/app/components/full-post-page";
-import PageLayout from "~/app/components/page-layout";
+import WindowLayout from "~/app/components/window-layout";
 
-export default function PostPage({
+export default async function PostPage({
   params: { id: postId },
 }: {
   params: { id: string };
@@ -14,8 +14,21 @@ export default function PostPage({
 
   //FULL PAGE VIEW OF POST
   return (
-    <PageLayout key={postIdAsNumber} postId={postIdAsNumber}>
-      <FullPagePostView postId={postIdAsNumber} />
-    </PageLayout>
+    <div
+      className="page-background"
+      style={{
+        background: "linear-gradient(to bottom, #256670, #1E425E)",
+        height: "94.9vh",
+        display: "flex",
+        alignContent: "center",
+        justifyContent: "center",
+        alignItems: "flex-start",
+        paddingTop: "2rem",
+      }}
+    >
+      <WindowLayout postId={postIdAsNumber}>
+        <FullPagePostView postId={postIdAsNumber} />
+      </WindowLayout>
+    </div>
   );
 }

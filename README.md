@@ -53,7 +53,8 @@ The main purpose of this project is to get my head around Nextjs as well as the 
 - [x] Get Delete Button Working properly
 - [x] Implement Analytics
 - [] Deletion - get routing working properly (not routing to defunct page, not refreshing on delete.)
-- [] Refactor Toast modals
+- [x] Refactor Toast modals
+- [] Test longer inputs
 - [] Clean up DB for finalisation
 
 BUG FIXES/CLEANUP
@@ -79,4 +80,5 @@ BUG FIXES/CLEANUP
 FUTURE FEATURES
 
 - [] rig up up/downvotes - complex, will need to refactor user history
+- [] About Page
 - [] Profile Page to just view the selected user's posts

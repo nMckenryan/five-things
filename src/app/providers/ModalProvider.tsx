@@ -1,7 +1,7 @@
 import { createContext } from "react";
 
 interface ModalContextProps {
-  onDismiss: () => void;
+  onDismiss?: () => void;
   isUserAuthorisedToEdit: boolean;
 }
 
