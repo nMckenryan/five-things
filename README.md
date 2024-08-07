@@ -16,9 +16,9 @@ This was built with the T3 Stack project bootstrapped with create-t3-app with:
 
 The main purpose of this project is to get my head around Nextjs as well as the Vercel ecosystem, and to explore a tech stack to get projects up and running
 
-![desktop screen](https://github.com/nMckenryan/five-things/blob/master/public/images/fiveThingsScreenshotDesktop.PNG?raw=true)
+![desktop screen](https://github.com/nMckenryan/five-things/blob/main/public/images/fiveThingsScreenshotDesktop.PNG?raw=true)
 
-![mobile screen](https://github.com/nMckenryan/five-things/blob/master/public/images/fiveThingsScreenshotMobile.PNG?raw=true)
+![mobile screen](https://github.com/nMckenryan/five-things/blob/main/public/images/fiveThingsScreenshotMobile.PNG?raw=true)
 
 ### NOTES:
 
