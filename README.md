@@ -1,6 +1,7 @@
 ## Five Things, a bulletpoint review site.
 
-> A Fine way to review the things you like (or don't) without writing a big fancy essay. Movies, Games, Books, Combo Meals at your local fast food restaurant, Ex-girlfriends, webcam monitors, beans, accountants in ulladulla.
+> A Simple way to review the things you like without writing a big fancy essay.
+> Movies, Games, Wine, Books, Combo Meals at your local fast food restaurant, Ex-girlfriends, Webcam monitors, Beans, Accountants in ulladulla.
 
 This was built with the T3 Stack project bootstrapped with create-t3-app with:
 
@@ -15,9 +16,13 @@ This was built with the T3 Stack project bootstrapped with create-t3-app with:
 
 The main purpose of this project is to get my head around Nextjs as well as the Vercel ecosystem, and to explore a tech stack to get projects up and running
 
+![desktop screen](https://github.com/nMckenryan/five-things/blob/master/public/fiveThingsScreenshotDesktop.PNG?raw=true)
+
+![mobile screen](https://github.com/nMckenryan/five-things/blob/master/public/fiveThingsScreenshotMobile.PNG?raw=true)
+
 ### NOTES:
 
-- Based off this T3 Stack tutorial from Theohttps://www.youtube.com/watch?v=d5x0JCZbAJs
+- Based off this T3 Stack tutorial from TheoT3 https://www.youtube.com/watch?v=d5x0JCZbAJs
 - Vercel/Postgres was real easy to use
 - Drizzle was a nice experience.
 - Clerk was a simple set up, no problems
@@ -52,10 +57,10 @@ The main purpose of this project is to get my head around Nextjs as well as the 
 - [x] toast confirmation on server actions
 - [x] Get Delete Button Working properly
 - [x] Implement Analytics
-- [] Deletion - get routing working properly (not routing to defunct page, not refreshing on delete.)
+- [x] Deletion - get routing working properly (not routing to defunct page, not refreshing on delete.)
 - [x] Refactor Toast modals
-- [] Test longer inputs
-- [] Clean up DB for finalisation
+- [x] Test longer inputs
+- [x] Clean up DB for finalisation, screenshots.
 
 BUG FIXES/CLEANUP
 
