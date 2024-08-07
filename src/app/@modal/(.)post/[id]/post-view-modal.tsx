@@ -40,7 +40,12 @@ export function PostViewModal({
           zIndex: 10,
         }}
       >
-        <WindowLayout postId={postId}>{children}</WindowLayout>
+        <WindowLayout
+          postId={postId}
+          isUserAuthorisedToEdit={isUserAuthorisedToEdit}
+        >
+          {children}
+        </WindowLayout>
       </dialog>
     </ModalContext.Provider>,
     document.getElementById("modal-root")!

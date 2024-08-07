@@ -1,5 +1,7 @@
 import FullPagePostView from "~/app/components/full-post-page";
 import WindowLayout from "~/app/components/window-layout";
+import { auth } from "@clerk/nextjs/server";
+import { getPostUserId } from "~/server/queries";
 
 export default async function PostPage({
   params: { id: postId },
@@ -11,6 +13,13 @@ export default async function PostPage({
   if (Number.isNaN(postIdAsNumber)) {
     throw new Error("Invalid post ID");
   }
+
+  const user = auth();
+  const loggedInUserId = user.userId ?? "Not Logged In";
+
+  const postUserId = await getPostUserId(postIdAsNumber);
+
+  const isUserAuthorisedToEdit = postUserId === loggedInUserId;
 
   //FULL PAGE VIEW OF POST
   return (
@@ -26,7 +35,10 @@ export default async function PostPage({
         paddingTop: "2rem",
       }}
     >
-      <WindowLayout postId={postIdAsNumber}>
+      <WindowLayout
+        postId={postIdAsNumber}
+        isUserAuthorisedToEdit={isUserAuthorisedToEdit}
+      >
         <FullPagePostView postId={postIdAsNumber} />
       </WindowLayout>
     </div>

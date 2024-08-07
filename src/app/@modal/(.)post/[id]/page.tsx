@@ -22,6 +22,7 @@ export default async function PostModal({
   const isUserAuthorisedToEdit = postUserId === loggedInUserId;
 
   return (
+    //MODAL VIEW OF POST
     <PostViewModal
       postId={postIdAsNumber}
       isUserAuthorisedToEdit={isUserAuthorisedToEdit}
