@@ -80,7 +80,9 @@ BUG FIXES/CLEANUP
 - [x] Fix modal not closing after deletion
 - [x] clean up actions/queries
 - [x] Clean up Readme
-- [] Clear Data on insert page when done
+- [x] Clear Data on insert page when done
+- [] Fix bug where deleting post via modal leads to broken page
+- [] fix font breaking on delete modal inside full post page
 
 FUTURE FEATURES
 

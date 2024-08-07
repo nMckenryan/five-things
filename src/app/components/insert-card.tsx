@@ -3,7 +3,7 @@
 import { Card, CardContent, CardActions } from "@mui/material";
 import AddCircleIcon from "@mui/icons-material/AddCircle";
 import CancelIcon from "@mui/icons-material/Cancel";
-import React from "react";
+import React, { useEffect } from "react";
 import Modal from "@mui/material/Modal";
 import TextField from "@mui/material/TextField";
 import Stack from "@mui/material/Stack";
@@ -43,7 +43,20 @@ export default function InsertCard() {
 
   const router = useRouter();
 
-  const { handleSubmit, control } = useForm<IFormInputs>();
+  const { handleSubmit, reset, formState, control } = useForm<IFormInputs>();
+
+  useEffect(() => {
+    if (formState.isSubmitSuccessful) {
+      reset({
+        subjectName: "",
+        firstThing: "",
+        secondThing: "",
+        thirdThing: "",
+        fourthThing: "",
+        fifthThing: "",
+      });
+    }
+  }, [formState, reset]);
 
   const onSubmit: SubmitHandler<IFormInputs> = async (data) => {
     try {
@@ -79,7 +92,7 @@ export default function InsertCard() {
             <form onSubmit={handleSubmit(onSubmit)}>
               <CardContent sx={{ p: 0 }}>
                 <div className="modalHeader">
-                  <h4>Add New Five Things!</h4>
+                  <h4 style={{ margin: 10 }}>Add New Five Things!</h4>
                 </div>
                 <Stack spacing={1}>
                   <Controller

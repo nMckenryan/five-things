@@ -1,6 +1,8 @@
 "use client";
 import Snackbar from "@mui/material/Snackbar";
 import React, { createContext, useContext, useState, useCallback } from "react";
+import IconButton from "@mui/material/IconButton";
+import CloseIcon from "@mui/icons-material/Close";
 
 interface ToastContextType {
   openToast: (message: string) => void;
@@ -29,6 +31,19 @@ export default function ToastHandler({
     []
   );
 
+  const action = (
+    <React.Fragment>
+      <IconButton
+        size="small"
+        aria-label="close"
+        color="inherit"
+        onClick={closeToast}
+      >
+        <CloseIcon fontSize="small" />
+      </IconButton>
+    </React.Fragment>
+  );
+
   return (
     <ToastContext.Provider value={{ openToast }}>
       <Snackbar
@@ -41,6 +56,7 @@ export default function ToastHandler({
         message={toastText}
         autoHideDuration={3000}
         sx={{ zIndex: 10000 }}
+        action={action}
       />
       {children}
     </ToastContext.Provider>
