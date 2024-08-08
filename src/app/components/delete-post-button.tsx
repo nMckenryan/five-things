@@ -14,10 +14,8 @@ import { useToastContext } from "./toast-handler";
 
 export default function DeletePostButton({
   postIdToDelete,
-  dismissModal,
 }: {
   postIdToDelete: number;
-  dismissModal?: () => void;
 }) {
   const [open, setOpen] = React.useState(false);
 
@@ -45,9 +43,8 @@ export default function DeletePostButton({
       await deletePost(postIdToDelete);
       openToast("Post Deleted");
       handleClose();
-      if (dismissModal != undefined) dismissModal();
-      router.push("/");
       router.refresh();
+      router.back();
     } catch (error) {
       openToast("Error: " + String(error));
     }

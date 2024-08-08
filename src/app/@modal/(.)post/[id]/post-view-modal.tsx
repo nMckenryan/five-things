@@ -29,7 +29,7 @@ export function PostViewModal({
   }
 
   return createPortal(
-    <ModalContext.Provider value={{ onDismiss, isUserAuthorisedToEdit }}>
+    <ModalContext.Provider value={{ isUserAuthorisedToEdit }}>
       <dialog
         ref={dialogRef}
         onClose={onDismiss}

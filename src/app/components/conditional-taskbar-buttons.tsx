@@ -13,12 +13,12 @@ export default function ConditionalTaskbarButtons({
 }: {
   postId: number;
 }) {
-  const { onDismiss, isUserAuthorisedToEdit } = useContext(ModalContext);
+  const { isUserAuthorisedToEdit } = useContext(ModalContext);
   return (
     <>
       {isUserAuthorisedToEdit ? (
         <>
-          <DeletePostButton postIdToDelete={postId} dismissModal={onDismiss} />
+          <DeletePostButton postIdToDelete={postId} />
 
           <Button className="editButton" href={`/post/${postId}/edit`}>
             <EditIcon />
