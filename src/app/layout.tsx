@@ -3,6 +3,8 @@ import { ThemeProvider } from "@mui/material/styles";
 import theme from "../theme";
 import "~/styles/globals.css";
 import {
+  ClerkLoaded,
+  ClerkLoading,
   ClerkProvider,
   SignInButton,
   SignedIn,
@@ -81,9 +83,12 @@ export default function RootLayout({
                       </SignedOut>
                       <SignedIn>
                         <InsertCard />
-                        <Suspense fallback={<Skeleton variant="circular" />}>
+                        <ClerkLoading>
+                          <Skeleton variant="circular" width={28} height={28} />
+                        </ClerkLoading>
+                        <ClerkLoaded>
                           <UserButton />
-                        </Suspense>
+                        </ClerkLoaded>
                       </SignedIn>
                     </div>
                   </header>

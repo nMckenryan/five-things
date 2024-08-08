@@ -43,8 +43,9 @@ export default function DeletePostButton({
       await deletePost(postIdToDelete);
       openToast("Post Deleted");
       handleClose();
-      router.refresh();
       router.back();
+      router.push("/");
+      router.refresh();
     } catch (error) {
       openToast("Error: " + String(error));
     }
