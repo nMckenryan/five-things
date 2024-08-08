@@ -22,11 +22,12 @@ export default function DeletePostButton({
   const { openToast } = useToastContext();
 
   const router = useRouter();
-  const handleClickOpen = () => {
+
+  const handleDeleteModalOpen = () => {
     setOpen(true);
   };
 
-  const handleClose = () => {
+  const handleDeleteModalClose = () => {
     setOpen(false);
   };
 
@@ -42,7 +43,7 @@ export default function DeletePostButton({
     try {
       await deletePost(postIdToDelete);
       openToast("Post Deleted");
-      handleClose();
+      handleDeleteModalClose();
       router.back();
       router.push("/");
       router.refresh();
@@ -53,7 +54,7 @@ export default function DeletePostButton({
 
   return (
     <>
-      <Button className="closeButton" onClick={handleClickOpen}>
+      <Button className="closeButton" onClick={handleDeleteModalOpen}>
         <DeleteIcon />
       </Button>
 
@@ -63,7 +64,7 @@ export default function DeletePostButton({
             dialog.open = open;
           }
         }}
-        onClose={handleClose}
+        onClose={handleDeleteModalClose}
         aria-labelledby="alert-dialog-title"
         aria-describedby="alert-dialog-description"
         style={{
@@ -81,7 +82,7 @@ export default function DeletePostButton({
           </DialogContentText>
         </DialogContent>
         <DialogActions>
-          <Button onClick={handleClose}>Cancel</Button>
+          <Button onClick={handleDeleteModalClose}>Cancel</Button>
           <Button
             onClick={async () => {
               await confirmDeletePost();
