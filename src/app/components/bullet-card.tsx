@@ -26,7 +26,7 @@ export default function BulletCard(props: Props) {
         <ul className="goodBullets">
           {props.fiveGoodThings.map((thing, index) => (
             <li key={`${props.subjectName}-${thing}-${index}`}>
-              {thing.toString()}
+              <p>{thing.toString()}</p>
             </li>
           ))}
         </ul>

@@ -15,14 +15,14 @@
 }
 
 
-.goodBullets {
-    list-style-type: "➕";
-    color: transparent;  
-    text-shadow: 0 0 0 #35452a;
-    text-wrap: none;
-    margin-top: 0.5;
-    margin-bottom: 0;
-}
+p {
+    margin: 4px;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
 
 .fiveCard {
     min-width: 255px;
