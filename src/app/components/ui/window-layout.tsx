@@ -5,7 +5,7 @@ import CloseIcon from "@mui/icons-material/Close";
 import Button from "@mui/material/Button";
 import { SignedIn } from "@clerk/nextjs";
 import ConditionalTaskbarButtons from "./conditional-taskbar-buttons";
-import ModalContext from "../providers/ModalProvider";
+import ModalContext from "../../providers/ModalProvider";
 
 export default function WindowLayout({
   postId,

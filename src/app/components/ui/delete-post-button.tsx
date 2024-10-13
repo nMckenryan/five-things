@@ -1,14 +1,14 @@
 "use client";
 
 import DeleteIcon from "@mui/icons-material/Delete";
-import "../../styles/bullet-card.css";
+import "../../../styles/bullet-card.css";
 import Button from "@mui/material/Button";
 import React, { useEffect } from "react";
 import DialogActions from "@mui/material/DialogActions";
 import DialogContent from "@mui/material/DialogContent";
 import DialogContentText from "@mui/material/DialogContentText";
 import DialogTitle from "@mui/material/DialogTitle";
-import { deletePost } from "../actions/actions";
+import { deletePost } from "../../actions/actions";
 import { useRouter } from "next/navigation";
 import { useToastContext } from "./toast-handler";
 

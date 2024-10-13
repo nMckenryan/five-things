@@ -6,7 +6,7 @@ import Button from "@mui/material/Button";
 
 import DeletePostButton from "./delete-post-button";
 import { useContext } from "react";
-import ModalContext from "../providers/ModalProvider";
+import ModalContext from "../../providers/ModalProvider";
 
 export default function ConditionalTaskbarButtons({
   postId,
