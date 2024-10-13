@@ -34,14 +34,8 @@ export default function BulletCardModal(props: Props) {
   }).format(props.dateUpdated);
 
   return (
-    <Card
-      className="fiveCardExpanded"
-      sx={{
-        background: "#EDFA8B",
-        boxShadow: "5px 5px 5px 0px rgba(0,0,0,0.5)",
-      }}
-    >
-      <CardContent style={{ paddingTop: "0px", paddingBottom: "0px" }}>
+    <Card className="fiveCardExpanded">
+      <CardContent className="fiveCardContentModal">
         <h3>{props.subjectName}</h3>
 
         <ul className="goodBullets">
@@ -53,10 +47,7 @@ export default function BulletCardModal(props: Props) {
         </ul>
       </CardContent>
 
-      <CardActions
-        className="cardFooter"
-        sx={{ display: "flex", flexDirection: "column" }}
-      >
+      <CardActions className="cardFooter">
         <p className="cardItems">{props.userName}</p>
 
         <p className="cardItems">Created: {dateCreated}</p>

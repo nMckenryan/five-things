@@ -176,3 +176,10 @@
   background-color: rgb(255 255 255 / 0.2);
 }
 
+.cardGridContainer {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}

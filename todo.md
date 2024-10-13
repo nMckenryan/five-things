@@ -53,4 +53,5 @@ FUTURE FEATURES
 
 - [] rig up up/downvotes - complex, will need to refactor user history
 - [] About Page
-- [] Profile Page to just view the selected user's posts
+- [] Post Filters - similar to twitter
+- [ ]
