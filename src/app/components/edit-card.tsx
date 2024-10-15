@@ -13,7 +13,7 @@ import CloseIcon from "@mui/icons-material/Close";
 import CancelIcon from "@mui/icons-material/Cancel";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
-import DeletePostButton from "./delete-post-button";
+import DeletePostButton from "./ui/delete-post-button";
 
 const style = {
   position: "absolute",
@@ -102,7 +102,12 @@ export default function EditCard(props: Props) {
               rules={{ required: true }}
               defaultValue={props.postThing1}
               render={({ field }) => (
-                <TextField placeholder={props.postThing1} {...field} />
+                <TextField
+                  multiline
+                  rows={4}
+                  placeholder={props.postThing1}
+                  {...field}
+                />
               )}
             />
 
@@ -112,7 +117,12 @@ export default function EditCard(props: Props) {
               rules={{ required: true }}
               defaultValue={props.postThing2}
               render={({ field }) => (
-                <TextField placeholder={props.postThing2} {...field} />
+                <TextField
+                  multiline
+                  rows={4}
+                  placeholder={props.postThing2}
+                  {...field}
+                />
               )}
             />
 
@@ -122,7 +132,12 @@ export default function EditCard(props: Props) {
               rules={{ required: true }}
               defaultValue={props.postThing3}
               render={({ field }) => (
-                <TextField placeholder={props.postThing3} {...field} />
+                <TextField
+                  multiline
+                  rows={4}
+                  placeholder={props.postThing3}
+                  {...field}
+                />
               )}
             />
 
@@ -132,7 +147,12 @@ export default function EditCard(props: Props) {
               rules={{ required: true }}
               defaultValue={props.postThing4}
               render={({ field }) => (
-                <TextField placeholder={props.postThing4} {...field} />
+                <TextField
+                  multiline
+                  rows={4}
+                  placeholder={props.postThing4}
+                  {...field}
+                />
               )}
             />
 
@@ -142,7 +162,12 @@ export default function EditCard(props: Props) {
               rules={{ required: true }}
               defaultValue={props.postThing5}
               render={({ field }) => (
-                <TextField placeholder={props.postThing5} {...field} />
+                <TextField
+                  multiline
+                  rows={4}
+                  placeholder={props.postThing5}
+                  {...field}
+                />
               )}
             />
 

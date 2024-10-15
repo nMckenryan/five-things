@@ -3,7 +3,7 @@
 import { type ElementRef, useEffect, useRef } from "react";
 import { useRouter } from "next/navigation";
 import { createPortal } from "react-dom";
-import WindowLayout from "~/app/components/window-layout";
+import WindowLayout from "~/app/components/ui/window-layout";
 import ModalContext from "~/app/providers/ModalProvider";
 
 export function PostViewModal({

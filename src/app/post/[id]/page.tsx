@@ -1,5 +1,5 @@
 import FullPagePostView from "~/app/components/full-post-page";
-import WindowLayout from "~/app/components/window-layout";
+import WindowLayout from "~/app/components/ui/window-layout";
 import { auth } from "@clerk/nextjs/server";
 import { getPostUserId } from "~/server/queries";
 

@@ -12,7 +12,7 @@ import Button from "@mui/material/Button";
 import { useForm, type SubmitHandler, Controller } from "react-hook-form";
 import { createPost } from "../actions/actions";
 import { useRouter } from "next/navigation";
-import { useToastContext } from "./toast-handler";
+import { useToastContext } from "./ui/toast-handler";
 
 interface IFormInputs {
   subjectName: string;

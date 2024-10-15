@@ -1,5 +1,13 @@
-import { Card, CardContent, CardActions } from "@mui/material";
+import {
+  Card,
+  CardContent,
+  CardActions,
+  Link,
+  Skeleton,
+  Grid,
+} from "@mui/material";
 import "../../styles/bullet-card.css";
+import { Suspense } from "react";
 
 interface Props {
   subjectName: string;
@@ -7,46 +15,44 @@ interface Props {
   userId: string;
   userName: string;
   dateCreated: Date;
+  postId: number;
 }
 
 export default function BulletCard(props: Props) {
   return (
-    <Card
-      className="fiveCard"
-      sx={{
-        background: "#EDFA8B",
-        boxShadow: "5px 5px 5px 0px rgba(0,0,0,0.5)",
-      }}
+    <Suspense
+      key={props.postId}
+      fallback={<Skeleton variant="rectangular" width={210} height={60} />}
     >
-      <CardContent
-        style={{ marginTop: "5px", paddingTop: "2px", paddingBottom: "0px" }}
-      >
-        <h3>{props.subjectName}</h3>
+      <Grid item>
+        <Link
+          className="fiveCard"
+          href={`/post/${props.postId}`}
+          style={{ textDecoration: "none" }}
+        >
+          <Card className="fiveCard" style={{ background: "#EDFA8B" }}>
+            <CardContent className="fiveCardContent">
+              <h3>{props.subjectName}</h3>
 
-        <ul className="goodBullets">
-          {props.fiveGoodThings.map((thing, index) => (
-            <li key={`${props.subjectName}-${thing}-${index}`}>
-              <p>{thing.toString()}</p>
-            </li>
-          ))}
-        </ul>
-      </CardContent>
-      <CardActions
-        style={{
-          paddingTop: "1px",
-          paddingBottom: "0px",
-          display: "flex",
-          flexDirection: "row",
-          justifyContent: "space-between",
-        }}
-      >
-        <p>{props.userName}</p>
-        <p>&nbsp;</p>
-        <p>
-          {props.dateCreated.getDate()}/{props.dateCreated.getMonth()}/
-          {props.dateCreated.getFullYear()}
-        </p>
-      </CardActions>
-    </Card>
+              <ul className="goodBullets">
+                {props.fiveGoodThings.map((thing, index) => (
+                  <li key={`${props.subjectName}-${thing}-${index}`}>
+                    <p>{thing.toString()}</p>
+                  </li>
+                ))}
+              </ul>
+            </CardContent>
+            <CardActions className="fiveCardActions">
+              <p>{props.userName}</p>
+              <p>&nbsp;</p>
+              <p>
+                {props.dateCreated.getDate()}/{props.dateCreated.getMonth()}/
+                {props.dateCreated.getFullYear()}
+              </p>
+            </CardActions>
+          </Card>
+        </Link>
+      </Grid>
+    </Suspense>
   );
 }

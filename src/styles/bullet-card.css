@@ -1,6 +1,6 @@
 .cardFooter {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: space-around;
 }
 
@@ -25,18 +25,40 @@ p {
   }
 
 .fiveCard {
-    min-width: 255px;
-    max-width: 400px;
-    padding: 4px;
+    background: "#EDFA8B";
+    width: 100%;
+    max-width: 600px;
     line-height: 1.5rem;
+    box-shadow: "5px 5px 5px 0px rgba(0,0,0,0.5)";
+}
+
+.fiveCardContent {
+    margin-top: "5px";
+    padding-top: "2px";
+    padding-bottom: "0px";
+}
+
+.fiveCardContentModal {
+    padding-top: "0px"; 
+    padding-bottom: "0px";
+    background: "#EDFA8B";
+}
+
+.fiveCardActions {
+    padding-top: 1px;
+    padding-bottom: 0px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
 }
 
 .fiveCardExpanded {
-    min-width: 350px;
-    max-width: 500px;
+
     padding: 8px;
     font-size: larger;
     line-height: 2rem;
+    background: "#EDFA8B";
+    box-shadow: "5px 5px 5px 0px rgba(0,0,0,0.5)";
 }
 
 .modalHeader {
@@ -44,5 +66,5 @@ p {
     justify-content: center;
     align-items: center;
     padding: 0px;
-  }
+}
 
