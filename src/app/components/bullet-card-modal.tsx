@@ -1,4 +1,4 @@
-import { Card, CardContent, CardActions } from "@mui/material";
+import { Card, CardContent, CardActions, CardHeader } from "@mui/material";
 import "../../styles/bullet-card.css";
 
 interface Props {
@@ -35,9 +35,8 @@ export default function BulletCardModal(props: Props) {
 
   return (
     <Card className="fiveCardExpanded" style={{ background: "#EDFA8B" }}>
+      <CardHeader title={props.subjectName} />
       <CardContent className="fiveCardContentModal">
-        <h3>{props.subjectName}</h3>
-
         <ul className="goodBullets">
           <li key={props.subjectName + props.postThing1}>{props.postThing1}</li>
           <li key={props.subjectName + props.postThing2}>{props.postThing2}</li>

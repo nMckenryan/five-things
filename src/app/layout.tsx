@@ -32,7 +32,18 @@ export default function RootLayout({
               <ThemeProvider theme={theme}>
                 <ToastHandler>
                   <HeaderMenu />
-                  <main>
+                  <main
+                    className="page-background"
+                    style={{
+                      background:
+                        "linear-gradient(to bottom, #256670, #1E425E)",
+                      display: "flex",
+                      alignContent: "center",
+                      justifyContent: "center",
+                      alignItems: "flex-start",
+                      padding: "2rem",
+                    }}
+                  >
                     {children}
                     {modal}
                     <div id="modal-root" />

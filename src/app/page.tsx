@@ -22,27 +22,33 @@ export default async function Home() {
       <main className={styles.main}>
         <div className={styles.container}>
           <Grid container spacing={2} justifyContent="center">
-            {posts.map(async (post) => {
-              const userName = await getUserName(post.userId);
+            {posts
+              .sort(
+                (a, b) =>
+                  new Date(b.createdAt).getTime() -
+                  new Date(a.createdAt).getTime()
+              )
+              .map(async (post) => {
+                const userName = await getUserName(post.userId);
 
-              return (
-                <BulletCard
-                  key={post.id}
-                  subjectName={post.subjectName}
-                  fiveGoodThings={[
-                    post.fiveThing1,
-                    post.fiveThing2,
-                    post.fiveThing3,
-                    post.fiveThing4,
-                    post.fiveThing5,
-                  ]}
-                  userId={post.userId}
-                  userName={userName}
-                  dateCreated={post.createdAt}
-                  postId={post.id}
-                />
-              );
-            })}
+                return (
+                  <BulletCard
+                    key={post.id}
+                    subjectName={post.subjectName}
+                    fiveGoodThings={[
+                      post.fiveThing1,
+                      post.fiveThing2,
+                      post.fiveThing3,
+                      post.fiveThing4,
+                      post.fiveThing5,
+                    ]}
+                    userId={post.userId}
+                    userName={userName}
+                    dateCreated={post.createdAt}
+                    postId={post.id}
+                  />
+                );
+              })}
           </Grid>
         </div>
       </main>

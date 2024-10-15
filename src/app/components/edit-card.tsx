@@ -1,6 +1,12 @@
 "use client";
 
-import { Card, CardContent, CardActions, TextField } from "@mui/material";
+import {
+  Card,
+  CardContent,
+  CardActions,
+  TextField,
+  CardHeader,
+} from "@mui/material";
 import AddCircleIcon from "@mui/icons-material/AddCircle";
 import "../../styles/bullet-card.css";
 import Button from "@mui/material/Button";
@@ -77,7 +83,7 @@ export default function EditCard(props: Props) {
         style={{ display: "flex", justifyContent: "space-between" }}
       >
         <DeletePostButton postIdToDelete={props.postId} />
-        <h4>Edit Five Things!</h4>
+        <CardHeader title={props.subjectName} />
         <Link href="/">
           <Button style={{ border: "none", background: "none" }}>
             <CloseIcon style={{ cursor: "pointer" }} />

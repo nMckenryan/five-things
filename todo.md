@@ -52,6 +52,5 @@ BUG FIXES/CLEANUP
 FUTURE FEATURES
 
 - [] rig up up/downvotes - complex, will need to refactor user history
-- [] About Page
+- [x] About Page
 - [] Post Filters - similar to twitter
-- [ ]

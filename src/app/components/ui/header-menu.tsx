@@ -10,6 +10,7 @@ import Link from "next/link";
 import InsertCard from "../insert-card";
 import { Skeleton, Typography } from "@mui/material";
 import LoginIcon from "@mui/icons-material/Login";
+import AboutPage from "~/app/about/page";
 
 export const HeaderMenu = () => (
   <header
@@ -44,6 +45,7 @@ export const HeaderMenu = () => (
         justifyContent: "center",
       }}
     >
+      <AboutPage />
       <SignedOut>
         <SignInButton>
           <LoginIcon sx={{ cursor: "hand", color: "white" }} />

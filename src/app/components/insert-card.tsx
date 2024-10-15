@@ -1,6 +1,6 @@
 "use client";
 
-import { Card, CardContent, CardActions } from "@mui/material";
+import { Card, CardContent, CardActions, CardHeader } from "@mui/material";
 import AddCircleIcon from "@mui/icons-material/AddCircle";
 import CancelIcon from "@mui/icons-material/Cancel";
 import React, { useEffect } from "react";
@@ -90,10 +90,11 @@ export default function InsertCard() {
         <>
           <Card sx={style}>
             <form onSubmit={handleSubmit(onSubmit)}>
+              <CardHeader
+                title="Add New Five Things!"
+                sx={{ fontbold: "bold" }}
+              />
               <CardContent sx={{ p: 0 }}>
-                <div className="modalHeader">
-                  <h4 style={{ margin: 10 }}>Add New Five Things!</h4>
-                </div>
                 <Stack spacing={1}>
                   <Controller
                     name="subjectName"

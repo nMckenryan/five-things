@@ -23,24 +23,11 @@ export default async function PostPage({
 
   //FULL PAGE VIEW OF POST
   return (
-    <div
-      className="page-background"
-      style={{
-        background: "linear-gradient(to bottom, #256670, #1E425E)",
-        height: "94.9vh",
-        display: "flex",
-        alignContent: "center",
-        justifyContent: "center",
-        alignItems: "flex-start",
-        paddingTop: "2rem",
-      }}
+    <WindowLayout
+      postId={postIdAsNumber}
+      isUserAuthorisedToEdit={isUserAuthorisedToEdit}
     >
-      <WindowLayout
-        postId={postIdAsNumber}
-        isUserAuthorisedToEdit={isUserAuthorisedToEdit}
-      >
-        <FullPagePostView postId={postIdAsNumber} />
-      </WindowLayout>
-    </div>
+      <FullPagePostView postId={postIdAsNumber} />
+    </WindowLayout>
   );
 }
