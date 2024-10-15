@@ -24,8 +24,12 @@ export default function BulletCard(props: Props) {
       key={props.postId}
       fallback={<Skeleton variant="rectangular" width={210} height={60} />}
     >
-      <Link className="fiveCard" href={`/post/${props.postId}`}>
-        <Card>
+      <Link
+        className="fiveCard"
+        href={`/post/${props.postId}`}
+        style={{ textDecoration: "none" }}
+      >
+        <Card className="fiveCard" style={{ background: "#EDFA8B" }}>
           <CardContent className="fiveCardContent">
             <h3>{props.subjectName}</h3>
 

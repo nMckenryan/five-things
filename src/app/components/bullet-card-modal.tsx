@@ -34,7 +34,7 @@ export default function BulletCardModal(props: Props) {
   }).format(props.dateUpdated);
 
   return (
-    <Card className="fiveCardExpanded">
+    <Card className="fiveCardExpanded" style={{ background: "#EDFA8B" }}>
       <CardContent className="fiveCardContentModal">
         <h3>{props.subjectName}</h3>
 

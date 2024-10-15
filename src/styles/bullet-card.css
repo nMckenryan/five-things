@@ -26,8 +26,9 @@ p {
 
 .fiveCard {
     background: "#EDFA8B";
-    min-width: 40%;
-    max-width: 70%;
+    width: 100%;
+    max-width: 600px;
+    
     padding: 4px;
     line-height: 1.5rem;
     box-shadow: "5px 5px 5px 0px rgba(0,0,0,0.5)";
@@ -42,6 +43,7 @@ p {
 .fiveCardContentModal {
     padding-top: "0px"; 
     padding-bottom: "0px";
+    background: "#EDFA8B";
 }
 
 .fiveCardActions {
@@ -53,8 +55,7 @@ p {
 }
 
 .fiveCardExpanded {
-    min-width: 350px;
-    max-width: 500px;
+
     padding: 8px;
     font-size: larger;
     line-height: 2rem;
@@ -67,5 +68,5 @@ p {
     justify-content: center;
     align-items: center;
     padding: 0px;
-  }
+}
 

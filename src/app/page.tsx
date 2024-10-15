@@ -1,12 +1,9 @@
-import Link from "next/link";
 import BulletCard from "./components/bullet-card";
-import Skeleton from "@mui/material/Skeleton";
 import { clerkClient } from "@clerk/nextjs/server";
-import { StrictMode, Suspense } from "react";
+import { StrictMode } from "react";
 
 import styles from "./index.module.css";
 import { getPosts } from "~/server/queries";
-import Grid from "@mui/material/Grid";
 
 //if DB is changed, updates page on next visit
 export const dynamic = "force-dynamic";

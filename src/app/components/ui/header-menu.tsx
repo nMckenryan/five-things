@@ -16,7 +16,8 @@ export const HeaderMenu = () => (
     style={{
       display: "flex",
       justifyContent: "space-between",
-      backgroundColor: "#407056",
+      backgroundImage: "linear-gradient(to bottom, #6EDE0D, #17DE0D)",
+      backgroundColor: "#0DDE4C",
       position: "sticky",
       top: "0",
       padding: "8px",

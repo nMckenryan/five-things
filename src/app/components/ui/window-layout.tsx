@@ -1,11 +1,9 @@
 "use client";
 
 import "~/styles/globals.css";
-import CloseIcon from "@mui/icons-material/Close";
-import Button from "@mui/material/Button";
-import { SignedIn } from "@clerk/nextjs";
-import ConditionalTaskbarButtons from "./conditional-taskbar-buttons";
+
 import ModalContext from "../../providers/ModalProvider";
+import Taskbar from "./taskbar";
 
 export default function WindowLayout({
   postId,
@@ -21,23 +19,16 @@ export default function WindowLayout({
       <div
         className="window"
         style={{
+          display: "flex",
+          flexDirection: "column",
+          minWidth: "50%",
+          maxWidth: "70%",
           padding: "0",
           border: "none",
-          background: "#EDFA8B",
+          background: "#E5F85A",
         }}
       >
-        <div
-          className="window-taskbar"
-          style={{ display: "flex", justifyContent: "flex-end" }}
-        >
-          <SignedIn>
-            <ConditionalTaskbarButtons postId={postId} />
-          </SignedIn>
-
-          <Button style={{ border: "none", background: "none" }} href="/">
-            <CloseIcon style={{ cursor: "pointer" }} />
-          </Button>
-        </div>
+        <Taskbar postId={postId} />
         {children}
       </div>
     </ModalContext.Provider>
