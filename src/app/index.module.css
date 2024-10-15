@@ -179,7 +179,7 @@
 .cardGridContainer {
   display: flex;
   flex-direction: row;
-  gap: 1rem;
+  gap: 5rem;
   flex-wrap: wrap;
   justify-content: center;
 }

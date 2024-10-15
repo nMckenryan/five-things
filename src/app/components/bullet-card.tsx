@@ -24,33 +24,35 @@ export default function BulletCard(props: Props) {
       key={props.postId}
       fallback={<Skeleton variant="rectangular" width={210} height={60} />}
     >
-      <Link
-        className="fiveCard"
-        href={`/post/${props.postId}`}
-        style={{ textDecoration: "none" }}
-      >
-        <Card className="fiveCard" style={{ background: "#EDFA8B" }}>
-          <CardContent className="fiveCardContent">
-            <h3>{props.subjectName}</h3>
+      <Grid item>
+        <Link
+          className="fiveCard"
+          href={`/post/${props.postId}`}
+          style={{ textDecoration: "none" }}
+        >
+          <Card className="fiveCard" style={{ background: "#EDFA8B" }}>
+            <CardContent className="fiveCardContent">
+              <h3>{props.subjectName}</h3>
 
-            <ul className="goodBullets">
-              {props.fiveGoodThings.map((thing, index) => (
-                <li key={`${props.subjectName}-${thing}-${index}`}>
-                  <p>{thing.toString()}</p>
-                </li>
-              ))}
-            </ul>
-          </CardContent>
-          <CardActions className="cardActions">
-            <p>{props.userName}</p>
-            <p>&nbsp;</p>
-            <p>
-              {props.dateCreated.getDate()}/{props.dateCreated.getMonth()}/
-              {props.dateCreated.getFullYear()}
-            </p>
-          </CardActions>
-        </Card>
-      </Link>
+              <ul className="goodBullets">
+                {props.fiveGoodThings.map((thing, index) => (
+                  <li key={`${props.subjectName}-${thing}-${index}`}>
+                    <p>{thing.toString()}</p>
+                  </li>
+                ))}
+              </ul>
+            </CardContent>
+            <CardActions className="cardActions">
+              <p>{props.userName}</p>
+              <p>&nbsp;</p>
+              <p>
+                {props.dateCreated.getDate()}/{props.dateCreated.getMonth()}/
+                {props.dateCreated.getFullYear()}
+              </p>
+            </CardActions>
+          </Card>
+        </Link>
+      </Grid>
     </Suspense>
   );
 }

@@ -28,8 +28,6 @@ p {
     background: "#EDFA8B";
     width: 100%;
     max-width: 600px;
-    
-    padding: 4px;
     line-height: 1.5rem;
     box-shadow: "5px 5px 5px 0px rgba(0,0,0,0.5)";
 }

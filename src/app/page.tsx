@@ -1,6 +1,7 @@
 import BulletCard from "./components/bullet-card";
 import { clerkClient } from "@clerk/nextjs/server";
 import { StrictMode } from "react";
+import { Grid } from "@mui/material";
 
 import styles from "./index.module.css";
 import { getPosts } from "~/server/queries";
@@ -20,7 +21,7 @@ export default async function Home() {
     <StrictMode>
       <main className={styles.main}>
         <div className={styles.container}>
-          <div className="cardGridContainer">
+          <Grid container spacing={2} justifyContent="center">
             {posts.map(async (post) => {
               const userName = await getUserName(post.userId);
 
@@ -42,7 +43,7 @@ export default async function Home() {
                 />
               );
             })}
-          </div>
+          </Grid>
         </div>
       </main>
     </StrictMode>

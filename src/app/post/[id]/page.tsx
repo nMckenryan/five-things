@@ -26,7 +26,7 @@ export default async function PostPage({
     <div
       className="page-background"
       style={{
-        background: "linear-gradient(to bottom, #CAA478, #cc8855)",
+        background: "linear-gradient(to bottom, #256670, #1E425E)",
         height: "94.9vh",
         display: "flex",
         alignContent: "center",

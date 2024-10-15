@@ -22,7 +22,7 @@ export default function WindowLayout({
           display: "flex",
           flexDirection: "column",
           minWidth: "50%",
-          maxWidth: "70%",
+          maxWidth: "95%",
           padding: "0",
           border: "none",
           background: "#E5F85A",
