@@ -42,7 +42,7 @@ export default function BulletCard(props: Props) {
                 ))}
               </ul>
             </CardContent>
-            <CardActions className="cardActions">
+            <CardActions className="fiveCardActions">
               <p>{props.userName}</p>
               <p>&nbsp;</p>
               <p>

@@ -46,8 +46,8 @@ BUG FIXES/CLEANUP
 - [x] clean up actions/queries
 - [x] Clean up Readme
 - [x] Clear Data on insert page when done
-- [] Fix bug where deleting post via modal leads to broken page
-- [] fix font breaking on delete modal inside full post page
+- [x] Fix bug where deleting post via modal leads to broken page
+- [x] fix font breaking on delete modal inside full post page
 
 FUTURE FEATURES
 
