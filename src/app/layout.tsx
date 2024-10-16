@@ -42,6 +42,7 @@ export default function RootLayout({
                       justifyContent: "center",
                       alignItems: "flex-start",
                       padding: "2rem",
+                      minHeight: "100vh",
                     }}
                   >
                     {children}
