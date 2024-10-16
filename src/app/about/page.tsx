@@ -44,9 +44,9 @@ export default function AboutPage() {
             <CardContent sx={{ marginTop: "0px", lineHeight: 1.5 }}>
               Five Things! is a simple little web app where you can share your
               thoughts on things you like. <br /> <br /> Movies, Films, Books,
-              Garden Equipment, the choice is yours. Don't worry about writing
-              lengthy treatises, just give five sentences about what you liked
-              about something!
+              Garden Equipment, the choice is yours. Don&apos;t worry about
+              writing lengthy treatises, just give five sentences about what you
+              liked about something!
             </CardContent>
             <CardActions
               sx={{

@@ -36,7 +36,10 @@ export default function BulletCardModal(props: Props) {
   return (
     <Card className="fiveCardExpanded" style={{ background: "#EDFA8B" }}>
       <CardHeader title={props.subjectName} style={{ px: 0 }} />
-      <CardContent className="fiveCardContentModal" style={{ px: 0 }}>
+      <CardContent
+        className="fiveCardContentModal"
+        style={{ paddingTop: 0, paddingBottom: 0 }}
+      >
         <ul style={{ margin: 0 }}>
           <li key={props.subjectName + props.postThing1}>{props.postThing1}</li>
           <li key={props.subjectName + props.postThing2}>{props.postThing2}</li>
