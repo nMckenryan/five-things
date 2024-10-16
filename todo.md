@@ -29,25 +29,11 @@
 
 BUG FIXES/CLEANUP
 
-- [x] Fixed up footer
-- [x] patch up UI for crud functions
-- [x] display usernames properly
-- [x] clean up edit modal
-- [x] fix mobile view
-- [x] Fix background height
-- [x] reload page on update/create
-- [x] fix background dimming
-- [x] Fix Confirmation dialog when update/create
-- [x] Clean up site for screenshots
-- [x] Fix delete confirmation dialog overlapping or being obscured by parent modal
-- [x] Fix Conditional rendering of edit/delete buttons, allowing only author to do so
-- [x] Fix parallel routing trying to go to unknown page after deletion.
-- [x] Fix modal not closing after deletion
-- [x] clean up actions/queries
-- [x] Clean up Readme
-- [x] Clear Data on insert page when done
-- [x] Fix bug where deleting post via modal leads to broken page
-- [x] fix font breaking on delete modal inside full post page
+
+- [x] fix background 
+
+- [ ] fix up modal
+- [x] Fix top button clipping thru header
 
 FUTURE FEATURES
 

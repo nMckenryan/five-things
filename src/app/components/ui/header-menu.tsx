@@ -23,6 +23,7 @@ export const HeaderMenu = () => (
       top: "0",
       padding: "8px",
       boxShadow: "0px 4px 4px rgba(0, 0, 0, 0.25)",
+      zIndex: 1000,
     }}
   >
     <Link href="/">

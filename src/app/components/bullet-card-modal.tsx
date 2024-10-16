@@ -35,9 +35,9 @@ export default function BulletCardModal(props: Props) {
 
   return (
     <Card className="fiveCardExpanded" style={{ background: "#EDFA8B" }}>
-      <CardHeader title={props.subjectName} />
-      <CardContent className="fiveCardContentModal">
-        <ul className="goodBullets">
+      <CardHeader title={props.subjectName} style={{ px: 0 }} />
+      <CardContent className="fiveCardContentModal" style={{ px: 0 }}>
+        <ul style={{ margin: 0 }}>
           <li key={props.subjectName + props.postThing1}>{props.postThing1}</li>
           <li key={props.subjectName + props.postThing2}>{props.postThing2}</li>
           <li key={props.subjectName + props.postThing3}>{props.postThing3}</li>
@@ -47,14 +47,17 @@ export default function BulletCardModal(props: Props) {
       </CardContent>
 
       <CardActions className="cardFooter">
-        <p className="cardItems">{props.userName}</p>
+        <div style={{ display: "flex", flexDirection: "column" }}>
+          <p className="cardItems">{props.userName}</p>
+        </div>
+        <div style={{ display: "flex", flexDirection: "column" }}>
+          <p className="cardItems">Created: {dateCreated}</p>
 
-        <p className="cardItems">Created: {dateCreated}</p>
-
-        <p className="cardItems">
-          Updated:
-          {lastUpdated}
-        </p>
+          <p className="cardItems">
+            Updated:
+            {lastUpdated}
+          </p>
+        </div>
       </CardActions>
     </Card>
   );

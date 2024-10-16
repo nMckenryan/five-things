@@ -180,6 +180,7 @@ export default function InsertCard() {
                         className="thingInput"
                         variant="outlined"
                         color="success"
+                        required
                         {...field}
                         inputProps={{ maxLength: 140 }}
                       />
@@ -196,6 +197,7 @@ export default function InsertCard() {
                         className="thingInput"
                         variant="outlined"
                         color="success"
+                        required
                         {...field}
                         inputProps={{ maxLength: 140 }}
                       />
