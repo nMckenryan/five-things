@@ -52,5 +52,6 @@ BUG FIXES/CLEANUP
 FUTURE FEATURES
 
 - [] rig up up/downvotes - complex, will need to refactor user history
+- [] Check modals for viewing still working? fix as needed
 - [x] About Page
 - [] Post Filters - similar to twitter

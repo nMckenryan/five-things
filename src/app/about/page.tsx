@@ -37,8 +37,11 @@ export default function AboutPage() {
       >
         <>
           <Card sx={style}>
-            <CardHeader title="About Five Things!" />
-            <CardContent sx={{ p: 0 }}>
+            <CardHeader
+              title="About Five Things!"
+              sx={{ fontWeight: "bold", paddingBottom: 0 }}
+            />
+            <CardContent sx={{ marginTop: "0px", lineHeight: 1.5 }}>
               Five Things! is a simple little web app where you can share your
               thoughts on things you like. <br /> <br /> Movies, Films, Books,
               Garden Equipment, the choice is yours. Don't worry about writing
@@ -48,8 +51,7 @@ export default function AboutPage() {
             <CardActions
               sx={{
                 display: "flex",
-                justifyContent: "space-between",
-                px: 0,
+                justifyContent: "right",
               }}
             >
               <Button

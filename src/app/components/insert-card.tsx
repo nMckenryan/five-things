@@ -3,6 +3,7 @@
 import { Card, CardContent, CardActions, CardHeader } from "@mui/material";
 import AddCircleIcon from "@mui/icons-material/AddCircle";
 import CancelIcon from "@mui/icons-material/Cancel";
+import DeleteIcon from "@mui/icons-material/Delete";
 import React, { useEffect } from "react";
 import Modal from "@mui/material/Modal";
 import TextField from "@mui/material/TextField";
@@ -45,16 +46,20 @@ export default function InsertCard() {
 
   const { handleSubmit, reset, formState, control } = useForm<IFormInputs>();
 
+  function resetForm() {
+    reset({
+      subjectName: "",
+      firstThing: "",
+      secondThing: "",
+      thirdThing: "",
+      fourthThing: "",
+      fifthThing: "",
+    });
+  }
+
   useEffect(() => {
     if (formState.isSubmitSuccessful) {
-      reset({
-        subjectName: "",
-        firstThing: "",
-        secondThing: "",
-        thirdThing: "",
-        fourthThing: "",
-        fifthThing: "",
-      });
+      resetForm();
     }
   }, [formState, reset]);
 
@@ -65,8 +70,8 @@ export default function InsertCard() {
         data.firstThing,
         data.secondThing,
         data.thirdThing,
-        data.fourthThing,
-        data.fifthThing
+        data.fourthThing || "",
+        data.fifthThing || ""
       );
       openToast("Post Created!");
       handleClose();
@@ -92,7 +97,7 @@ export default function InsertCard() {
             <form onSubmit={handleSubmit(onSubmit)}>
               <CardHeader
                 title="Add New Five Things!"
-                sx={{ fontbold: "bold" }}
+                sx={{ fontWeight: "bold", paddingLeft: 0.5 }}
               />
               <CardContent sx={{ p: 0 }}>
                 <Stack spacing={1}>
@@ -108,6 +113,8 @@ export default function InsertCard() {
                         color="success"
                         required
                         {...field}
+                        inputProps={{ maxLength: 140 }}
+                        style={{ marginBottom: 15 }}
                       />
                     )}
                   />
@@ -124,6 +131,7 @@ export default function InsertCard() {
                         color="success"
                         required
                         {...field}
+                        inputProps={{ maxLength: 140 }}
                       />
                     )}
                   />
@@ -140,6 +148,7 @@ export default function InsertCard() {
                         color="success"
                         required
                         {...field}
+                        inputProps={{ maxLength: 140 }}
                       />
                     )}
                   />
@@ -156,6 +165,7 @@ export default function InsertCard() {
                         color="success"
                         required
                         {...field}
+                        inputProps={{ maxLength: 140 }}
                       />
                     )}
                   />
@@ -170,8 +180,8 @@ export default function InsertCard() {
                         className="thingInput"
                         variant="outlined"
                         color="success"
-                        required
                         {...field}
+                        inputProps={{ maxLength: 140 }}
                       />
                     )}
                   />
@@ -186,8 +196,8 @@ export default function InsertCard() {
                         className="thingInput"
                         variant="outlined"
                         color="success"
-                        required
                         {...field}
+                        inputProps={{ maxLength: 140 }}
                       />
                     )}
                   />
@@ -198,6 +208,7 @@ export default function InsertCard() {
                   display: "flex",
                   justifyContent: "space-between",
                   px: 0,
+                  pt: 3,
                 }}
               >
                 <Button
@@ -207,6 +218,16 @@ export default function InsertCard() {
                 >
                   Cancel
                 </Button>
+
+                <Button
+                  variant="outlined"
+                  color="error"
+                  startIcon={<DeleteIcon />}
+                  onClick={resetForm}
+                >
+                  Clear
+                </Button>
+
                 <Button
                   variant="outlined"
                   endIcon={<AddCircleIcon />}

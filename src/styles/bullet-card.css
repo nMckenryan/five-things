@@ -36,6 +36,7 @@ p {
     margin-top: "5px";
     padding-top: "2px";
     padding-bottom: "0px";
+    line-height: 1.5rem;
 }
 
 .fiveCardContentModal {

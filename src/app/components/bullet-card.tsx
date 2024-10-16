@@ -34,10 +34,13 @@ export default function BulletCard(props: Props) {
             <CardContent className="fiveCardContent">
               <h3>{props.subjectName}</h3>
 
-              <ul className="goodBullets">
+              <ul>
                 {props.fiveGoodThings.map((thing, index) => (
-                  <li key={`${props.subjectName}-${thing}-${index}`}>
-                    <p>{thing.toString()}</p>
+                  <li
+                    key={`${props.subjectName}-${thing}-${index}`}
+                    style={{ lineHeight: 1.5 }}
+                  >
+                    {thing.toString()}
                   </li>
                 ))}
               </ul>
