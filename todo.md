@@ -1,6 +1,19 @@
 
 ### TODO:
 
+## REBRAND: 
+
+[ ] - Turn this into Letterboxd for video games
+[ ] - Set up DB of video games, from Giant BombAPI, to get boxart
+
+
+
+
+
+
+
+
+
 - [x] Basic Setup and Deployment
 - [x] DEPLOY to Vercel
 - [x] Draft UI with MUI
@@ -31,7 +44,6 @@ BUG FIXES/CLEANUP
 
 
 - [x] fix background 
-
 - [ ] fix up modal
 - [x] Fix top button clipping thru header
 
